@@ -1,0 +1,36 @@
+
+h1 {
+    color: white;
+}
+/* <!-- Main BOX --> */
+.box0 {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(aqua, rgb(71, 109, 67), green);
+  display: block;
+}
+/* <!-- Logos BOX --> */
+.box1 {
+  width: 100vw;
+  height: 10%;  
+  background-color: red;
+
+}
+/* <!-- Puzzle BOX --> */
+.box2 {
+  width: 100vw;
+  height: 50%;  
+  background-color: green; 
+}
+/* <!-- Points and Wheel wrapper BOX --> */
+.box3 {
+  width: 100vw;
+  height: 35%;  
+  background-color: pink;  
+}
+/* <!-- Footer Menu BOX --> */
+.box4 {
+  width: 100vw;
+  height: 5%;  
+  background-color: blueviolet;
+}
