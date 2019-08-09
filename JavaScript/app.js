@@ -1,20 +1,26 @@
 let wheelAngle=0
-let wheelCount=0
-let target = document.querySelector('#spinWheel');
-//console.log(target);
-let player = target.animate([
-//   {transform: 'rotateZ(0deg)'},
-//   {transform: 'rotateZ(500deg)'}
-  {transform: 'rotateZ('+wheelAngle.toString()+'deg)'},
-  {transform: 'rotateZ('+(wheelAngle+150).toString()+'deg)'}
-], 500);
+//let wheelCount=0
 
 
-player.addEventListener('finish', function() {
-  //target.style.transform = 'translate(100px, 100px)';
-  wheelAngle=(wheelAngle+150)%360;
-  console.log(wheelAngle)
-});
+function spinWheel(angle){
+    let target = document.querySelector('#spinWheel');
+    //console.log(target);
+    let player = target.animate([
+    //   {transform: 'rotateZ(0deg)'},
+    //   {transform: 'rotateZ(500deg)'}
+      {transform: 'rotateZ('+wheelAngle.toString()+'deg)'},
+      {transform: 'rotateZ('+(wheelAngle+150).toString()+'deg)'}
+    ], 700);  
+
+    player.addEventListener('finish', function() {
+        //target.style.transform = 'translate(100px, 100px)';
+        wheelAngle=(wheelAngle+150)%360;
+        console.log(wheelAngle)
+      });
+
+}
+
+
 
 
 // credits for this function: https://stackoverflow.com/questions/18481550/how-to-dynamically-create-keyframe-css-animations
@@ -33,14 +39,18 @@ function insertCSSRule(ruleText)
 
 $('body').ready(function() {
     console.log( "Body ready!" );  
+    spinWheel(180)
 });
 
 
 
 $('#spin').click(function() {
-    let addAngle=Math.floor(Math.random()*360)
+    addAngle=Math.floor(Math.random()*360)
     console.log(addAngle)
     wheelAngle+=addAngle+360
+
+    spinWheel(180)
+    
     //console.log($("#spinWheel").css("animation"))
     //console.log($("#spinWheel").css("animation-iteration-count"))
     let ic=$("#spinWheel").css("animation-iteration-count");
