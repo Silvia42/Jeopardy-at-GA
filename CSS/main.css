@@ -1,4 +1,11 @@
 
+
+/* ########## C O L O R S ############# */
+:root {
+  --wheelCenter: rgb(0,152,119);
+
+}
+
 h1 {
     color: white;
 }
@@ -28,6 +35,7 @@ h1 {
   width: 100vw;
   height: 35%;  
   background-color: rgb(0,152,119);
+  background-color: var(--wheelCenter);
   display: flex;
   flex-direction: row;
 }
@@ -64,36 +72,60 @@ h1 {
 }
 
 .box3Wcircle{
-  width: 32vh;
-  height: 32vh;
+  width: 35vh;
+  height: 35vh;
   border-radius: 50%;
-  background-image: url("../Images/WOF_001-small.png");
+  /* background-image: url("../Images/WOF_001-small.png"); */
   background-color: rgb(74, 72, 77);
-
   margin: 0 auto;
-  padding: 10px;
   background-size: cover;
-  
 }
 
 .box3Wcircle img {
-  width: 100%;
-  height: auto;
-  /* object-fit: scale-down; */
-  /* object-fit: contain; */
+  max-width:100%;
+  max-height:100%;
+  object-fit: contain;
 }
 .spin{
   font-size: 1em;
-  width:6em;
+  width:5em;
   height: 4em;;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   transform: rotate(55deg);
   /* top:-50; */
   position: fixed;
-  bottom: 5%;
+  bottom: 7%;
   right: 22%;
   padding: 2em 0;
   /* border: 3px solid green; */
 
 }
 
+
+
+/* ############################################################## */
+/* ########### KEY FRAMES - Wheel spinning ###################### */
+/* ############################################################## */
+.spinWheel{
+  /* animation-fill-mode: forwards; */
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  /* animation: keepRotate 7s infinite linear; */
+  /* animation: keepRotate 7s ease-out; */
+  animation: keepRotate 7s ease-out forwards;
+  
+}
+.spinWheel:hover {
+  animation-play-state: paused;
+  
+}
+
+@keyframes keepRotate{
+    0% { transform: rotateZ(0deg); }
+    /* 100% { transform: rotateZ(360deg); } */
+    /* 100% { transform: rotateZ(720deg); } */
+    /* 20% { transform: rotateZ(1080deg); } */
+    /* 50% { transform: rotateZ(720deg); } */
+    100% { transform: rotateZ(500deg); }
+
+
+}
