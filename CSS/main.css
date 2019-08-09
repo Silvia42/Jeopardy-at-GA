@@ -6,14 +6,14 @@ h1 {
 .box0 {
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(aqua, rgb(71, 109, 67), green);
+  /* background-image: linear-gradient(aqua, rgb(71, 109, 67), green); */
   display: flex;
   flex-direction: column;
 }
 /* <!-- Logos BOX --> */
 .box1 {
   width: 100vw;
-  height: 10%;  
+  height: 12%;  
   background-color: red;
 
 }
@@ -27,15 +27,20 @@ h1 {
 .box3 {
   width: 100vw;
   height: 35%;  
-  background-color: pink;  
+  background-color: rgb(0,152,119);
   display: flex;
   flex-direction: row;
 }
 /* <!-- Footer Menu BOX --> */
 .box4 {
   width: 100vw;
-  height: 5%;  
+  height: 3%;  
   background-color: rgb(226, 125, 43);
+}
+.box4 p{
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 .box3PA {
   width: 70%;
@@ -55,6 +60,40 @@ h1 {
 .box3W {
   width: 30%;
   height: 100%;  
+  border-radius: 50%;
+}
+
+.box3Wcircle{
+  width: 32vh;
+  height: 32vh;
+  border-radius: 50%;
   background-image: url("../Images/WOF_001-small.png");
   background-color: rgb(74, 72, 77);
+
+  margin: 0 auto;
+  padding: 10px;
+  background-size: cover;
+  
 }
+
+.box3Wcircle img {
+  width: 100%;
+  height: auto;
+  /* object-fit: scale-down; */
+  /* object-fit: contain; */
+}
+.spin{
+  font-size: 1em;
+  width:6em;
+  height: 4em;;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(55deg);
+  /* top:-50; */
+  position: fixed;
+  bottom: 5%;
+  right: 22%;
+  padding: 2em 0;
+  /* border: 3px solid green; */
+
+}
+
