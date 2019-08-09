@@ -17,3 +17,5 @@ Highlits specifications:
 ```
 
 <img src="Documentation/MainScreenDiagram.001.png" alt="Main Screen Diagram">
+
+<a href="https://github.com/Silvia42/Wheel-Of-Jeopardy/projects/1">Kanban Project Board</a>

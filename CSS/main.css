@@ -7,7 +7,8 @@ h1 {
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(aqua, rgb(71, 109, 67), green);
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
 /* <!-- Logos BOX --> */
 .box1 {
@@ -27,10 +28,33 @@ h1 {
   width: 100vw;
   height: 35%;  
   background-color: pink;  
+  display: flex;
+  flex-direction: row;
 }
 /* <!-- Footer Menu BOX --> */
 .box4 {
   width: 100vw;
   height: 5%;  
-  background-color: blueviolet;
+  background-color: rgb(226, 125, 43);
+}
+.box3PA {
+  width: 70%;
+  height: 100%;  
+  background-color: rgb(59, 27, 88);
+}
+.box3P {
+  width: 100%;
+  height: 50%;  
+  background-color: royalblue;
+}
+.box3A {
+  width: 100%;
+  height: 50%;  
+  background-color: rgb(25, 95, 40);
+}
+.box3W {
+  width: 30%;
+  height: 100%;  
+  background-image: url("../Images/WOF_001-small.png");
+  background-color: rgb(74, 72, 77);
 }
