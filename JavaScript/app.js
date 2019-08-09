@@ -1,58 +1,41 @@
 let wheelAngle=0
 let wheelCount=0
+let target = document.querySelector('#spinWheel');
+//console.log(target);
+let player = target.animate([
+//   {transform: 'rotateZ(0deg)'},
+//   {transform: 'rotateZ(500deg)'}
+  {transform: 'rotateZ('+wheelAngle.toString()+'deg)'},
+  {transform: 'rotateZ('+(wheelAngle+150).toString()+'deg)'}
+], 500);
 
-// function findKeyframesRule(rule) {
-//     let ss = document.styleSheets;
-//     for (var i = 0; i < ss.length; ++i) {
-//       console.log(ss[i])  
-//       for (var j = 0; j < ss[i].cssRules.length; ++j) {
-//         console.log(ss[i].cssRules[j].type)  
-//         if (ss[i].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && 
-//         ss[i].cssRules[j].name == rule) { 
-//           return ss[i].cssRules[j]; }
-//       }
-//     }
-//     return null;
-//   }
 
-//   function findKeyframesRule(rule) {
-//     var ss = document.styleSheets;
-//     for (var i = 0; i < ss.length; ++i) {
-//         for (var j = 0; j < ss[i].cssRules.length; ++j) {
-//             if (ss[i].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name == rule) { return ss[i].cssRules[j]; }
-//         }
-//     }
-//     return null;
-// }
+player.addEventListener('finish', function() {
+  //target.style.transform = 'translate(100px, 100px)';
+  wheelAngle=(wheelAngle+150)%360;
+  console.log(wheelAngle)
+});
+
+
+// credits for this function: https://stackoverflow.com/questions/18481550/how-to-dynamically-create-keyframe-css-animations
+function insertCSSRule(ruleText)
+{
+    let sheets = document.styleSheets;
+    sheets.insertRule(ruleText);
+    // if(sheets.length == 0){
+    //     let style = document.createElement('style');
+    //     style.appendChild(document.createTextNode(""));
+    //     document.head.appendChild(style);
+    // }
+    // let sheet = sheets[sheets.length - 1];
+    // sheet.insertRule(ruleText, sheet.rules ? sheet.rules.length : sheet.cssRules.length);
+};
 
 $('body').ready(function() {
     console.log( "Body ready!" );  
-    // Body ready!
-    console.log(document.styleSheets);
-    // StyleSheetList {0: CSSStyleSheet, length: 1}
-    console.log(document.styleSheets[0]);
-    // CSSStyleSheet {ownerRule: null, type: "text/css", href: "file:///Users/silviakocsisovaCB5/Desktop/SEI/MyProjects/001.WheelOfJeopardy/WOJ.001/CSS/main.css", ownerNode: link, parentStyleSheet: null, …}
-    console.log(document.styleSheets[0].cssRules);
-    // DOMException: Failed to read the 'cssRules' property from 'CSSStyleSheet': Cannot access rules ........
-    // console.log(document.styleSheets[0].cssRules[0].name);
-    
-
-
-    //keyframes.insertRule('0% {transform: translate(100px, 100px) rotate(" + (multiplier + 0) + "deg)translate(-100px, -100px) rotate(" + (multiplier + 0) + "deg);background-color:red;}");'
-
-    //document.getElementsByClassName('keepRotate')[0].classList.add('translateAnimationClass'); }
-    //console.log(document.getElementById('keepRotate'))    // null
-    //console.log(document.getElementById('keepRotate')[0]) // undefined
-
-    //$("body").keyframe.define({
-    // $('body').keyframes.define({
-    //     name: 'keepRotate',
-    //     from: {'transform':'rotateZ(0deg)'},
-    //     to: {'transform':'rotateZ(500deg)'}
-    // });
-
-
 });
+
+
 
 $('#spin').click(function() {
     let addAngle=Math.floor(Math.random()*360)

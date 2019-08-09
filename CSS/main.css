@@ -106,19 +106,19 @@ h1 {
 /* ############################################################## */
 /* ########### KEY FRAMES - Wheel spinning ###################### */
 /* ############################################################## */
-#spinWheel{
+/* #spinWheel{ */
   /* animation-fill-mode: forwards; */
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   /* animation: keepRotate 7s infinite linear; */
   /* animation: keepRotate 7s ease-out; */
   /* animation-iteration-count: 3; */
-  animation: keepRotate 7s 1 ease-out forwards;
+  /* animation: keepRotate 7s 1 ease-out forwards; */
  
-}
-#spinWheel:hover {
-  animation-play-state: paused;
-}
-@keyframes keepRotate{
-    0% { transform: rotateZ(0deg); }
-    100% { transform: rotateZ(500deg); }
-}
+/* } */
+/* #spinWheel:hover { */
+  /* animation-play-state: paused; */
+/* } */
+/* @keyframes keepRotate{ */
+    /* 0% { transform: rotateZ(0deg); } */
+    /* 100% { transform: rotateZ(500deg); } */
+/* } */
