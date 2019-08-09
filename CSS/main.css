@@ -86,7 +86,7 @@ h1 {
   max-height:100%;
   object-fit: contain;
 }
-.spin{
+#spin{
   font-size: 1em;
   width:5em;
   height: 4em;;
@@ -106,26 +106,19 @@ h1 {
 /* ############################################################## */
 /* ########### KEY FRAMES - Wheel spinning ###################### */
 /* ############################################################## */
-.spinWheel{
+#spinWheel{
   /* animation-fill-mode: forwards; */
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   /* animation: keepRotate 7s infinite linear; */
   /* animation: keepRotate 7s ease-out; */
-  animation: keepRotate 7s ease-out forwards;
-  
+  /* animation-iteration-count: 3; */
+  animation: keepRotate 7s 1 ease-out forwards;
+ 
 }
-.spinWheel:hover {
+#spinWheel:hover {
   animation-play-state: paused;
-  
 }
-
 @keyframes keepRotate{
     0% { transform: rotateZ(0deg); }
-    /* 100% { transform: rotateZ(360deg); } */
-    /* 100% { transform: rotateZ(720deg); } */
-    /* 20% { transform: rotateZ(1080deg); } */
-    /* 50% { transform: rotateZ(720deg); } */
     100% { transform: rotateZ(500deg); }
-
-
 }
