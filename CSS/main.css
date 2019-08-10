@@ -3,6 +3,7 @@
 /* ########## C O L O R S ############# */
 :root {
   --wheelCenter: rgb(0,152,119);
+  --myYellow:rgb(255,208,0);
 
 }
 
@@ -21,16 +22,18 @@ h1 {
 .box1 {
   width: 100vw;
   height: 12%;  
-  background-color: red;
+  background-color: var(--wheelCenter);
   display: flex;
   flex-direction: row;
-  justify-content: center; 
+  /* justify-content: center;  */
+  /* justify-items: flex-end; */
+  /* justify-content: space-around; */
 }
 /* <!-- Puzzle BOX --> */
 .box2 {
   width: 100vw;
   height: 50%;  
-  background-color: green; 
+  background-color: var(--wheelCenter);
 }
 /* <!-- Points and Wheel wrapper BOX --> */
 .box3 {
@@ -45,7 +48,7 @@ h1 {
 .box4 {
   width: 100vw;
   height: 3%;  
-  background-color: rgb(226, 125, 43);
+  background-color: var(--wheelCenter);
 }
 .box4 p{
   margin: 0;
@@ -55,17 +58,20 @@ h1 {
 .box3PA {
   width: 70%;
   height: 100%;  
-  background-color: rgb(59, 27, 88);
+  /* background-color: rgb(59, 27, 88); */
+  background-color: var(--wheelCenter);
 }
 .box3P {
   width: 100%;
   height: 50%;  
-  background-color: royalblue;
+  /* background-color: royalblue; */
+  background-color: var(--wheelCenter);
 }
 .box3A {
   width: 100%;
   height: 50%;  
-  background-color: rgb(25, 95, 40);
+  /* background-color: rgb(25, 95, 40); */
+  background-color: var(--wheelCenter);
 }
 .box3W {
   width: 220px;
@@ -129,6 +135,7 @@ h1 {
 /* ############################################################## */
 /* ########### KEY FRAMES - 3D rotating logo - axis y ########### */
 /* ############################################################## */
+/* ############# rotation Wheel of Fortune Logo   ############### */
 #rotoLogo{
   z-index: 9999;
   position: absolute;
@@ -138,7 +145,7 @@ h1 {
   display: flex;
   flex-direction: row;
   height: 100%;
-  width: 30%;
+  width: 15%;
 }
 .smallLogo{
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
@@ -151,18 +158,60 @@ h1 {
   width: 15vmin;
   height: auto;
 }
+/* ############################################################## */
+/* ########### KEY FRAMES - 3D rotating logo - axis x ########### */
+/* ############# rotation Jeopardy Logo   ############### */
+#rotoJeop{
+  z-index: 9999;
+  /* position: relative; */
+  /* position: sticky; */
+  position: absolute;
+  right: 0px;
+      /* top left  */
+  margin: .2em .5em;
+  top:0;
+  /* right:100px; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  height: 100%;
+  width: 22%;
+  /* width: auto; */
+  float:right;
+}
+.smallJeop{
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: keepRotateJeopardy 7s infinite linear;
+}
+.smallJeop:hover {
+  animation-play-state: paused;
+}
+#rotoJeop img{
+  height: 12vh;
+  width: auto;
+}
+
 
 @keyframes keepRotate{
     /* 0% { transform: rotateY(0deg); } */
     100% { transform: rotateY(360deg); }
 }
+@keyframes keepRotateJeopardy{
+  /* 0% { transform: rotateX(0deg); } */
+  100% { transform: rotateX(360deg); }
+}
 /* ################################################ */
+.box1a{
+  height: 100%;
+  /* width: auto; */
+  width: 10%;
+}
 .logoWOJ{
   height: 100%;
-  /* width: 70%; */
- 
+  /* width: auto; */
+  width: 70%;
 }
 .logoWOJ img{
   height: 100%;
   width: auto;
 }
+
