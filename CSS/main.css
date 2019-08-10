@@ -22,7 +22,9 @@ h1 {
   width: 100vw;
   height: 12%;  
   background-color: red;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center; 
 }
 /* <!-- Puzzle BOX --> */
 .box2 {
@@ -123,3 +125,44 @@ h1 {
     /* 0% { transform: rotateZ(0deg); } */
     /* 100% { transform: rotateZ(500deg); } */
 /* } */
+
+/* ############################################################## */
+/* ########### KEY FRAMES - 3D rotating logo - axis y ########### */
+/* ############################################################## */
+#rotoLogo{
+  z-index: 9999;
+  position: absolute;
+  margin: 1.2em auto;
+  top:0;
+  left:10px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 30%;
+}
+.smallLogo{
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: keepRotate 7s infinite linear;
+}
+.smallLogo:hover {
+  animation-play-state: paused;
+}
+#rotoLogo img{
+  width: 15vmin;
+  height: auto;
+}
+
+@keyframes keepRotate{
+    /* 0% { transform: rotateY(0deg); } */
+    100% { transform: rotateY(360deg); }
+}
+/* ################################################ */
+.logoWOJ{
+  height: 100%;
+  /* width: 70%; */
+ 
+}
+.logoWOJ img{
+  height: 100%;
+  width: auto;
+}
