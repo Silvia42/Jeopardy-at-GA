@@ -66,16 +66,18 @@ h1 {
   background-color: rgb(25, 95, 40);
 }
 .box3W {
-  width: 30%;
-  height: 100%;  
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
+  margin: 0 0 0 59px;
+  position: relative;
 }
 
 .box3Wcircle{
-  width: 35vh;
-  height: 35vh;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  /* background-image: url("../Images/WOF_001-small.png"); */
+  /* background-image: url(../Images/WOF_001-small.png); */
   background-color: rgb(74, 72, 77);
   margin: 0 auto;
   background-size: cover;
@@ -88,14 +90,13 @@ h1 {
 }
 #spin{
   font-size: 1em;
-  width:5em;
-  height: 4em;;
+  width: 5em;
+  height: 4em;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   transform: rotate(55deg);
-  /* top:-50; */
-  position: fixed;
-  bottom: 7%;
-  right: 22%;
+  position: absolute;
+  bottom: 19px;
+  left: -48px;
   padding: 2em 0;
   /* border: 3px solid green; */
 

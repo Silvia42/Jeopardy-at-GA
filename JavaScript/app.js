@@ -1,20 +1,24 @@
 let wheelAngle=0
 //let wheelCount=0
 
-
 function spinWheel(angle){
     let target = document.querySelector('#spinWheel');
     //console.log(target);
     let player = target.animate([
     //   {transform: 'rotateZ(0deg)'},
     //   {transform: 'rotateZ(500deg)'}
-      {transform: 'rotateZ('+wheelAngle.toString()+'deg)'},
-      {transform: 'rotateZ('+(wheelAngle+150).toString()+'deg)'}
-    ], 700);  
+    //   {transform: 'rotateZ('+wheelAngle.toString()+'deg)'},
+      {transform: 'rotateZ('+(wheelAngle+angle).toString()+'deg)'}
+    ], {duration : 1000, iterations : 1,fill : "forwards"}
+    );
+    
+    
+    //700);  
 
     player.addEventListener('finish', function() {
         //target.style.transform = 'translate(100px, 100px)';
-        wheelAngle=(wheelAngle+150)%360;
+        // wheelAngle=(wheelAngle+angle)%360;
+        wheelAngle+=angle
         console.log(wheelAngle)
       });
 
@@ -45,12 +49,13 @@ $('body').ready(function() {
 
 
 $('#spin').click(function() {
+    console.log('something was click')
     addAngle=Math.floor(Math.random()*360)
-    console.log(addAngle)
+    console.log('math',addAngle)
     wheelAngle+=addAngle+360
 
-    spinWheel(180)
-    
+    spinWheel(addAngle)
+
     //console.log($("#spinWheel").css("animation"))
     //console.log($("#spinWheel").css("animation-iteration-count"))
     let ic=$("#spinWheel").css("animation-iteration-count");
