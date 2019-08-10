@@ -5,15 +5,11 @@ function spinWheel(angle){
     let target = document.querySelector('#spinWheel');
     //console.log(target);
     let player = target.animate([
-    //   {transform: 'rotateZ(0deg)'},
     //   {transform: 'rotateZ(500deg)'}
-    //   {transform: 'rotateZ('+wheelAngle.toString()+'deg)'},
-      {transform: 'rotateZ('+(wheelAngle+angle).toString()+'deg)'}
-    ], {duration : 1000, iterations : 1,fill : "forwards"}
+      {transform: 'rotateZ('+(wheelAngle+360+angle).toString()+'deg)'}
+    ], {duration : 512, iterations : 1,fill : "forwards",easing: 'ease-in-out'}
     );
-    
-    
-    //700);  
+ 
 
     player.addEventListener('finish', function() {
         //target.style.transform = 'translate(100px, 100px)';
