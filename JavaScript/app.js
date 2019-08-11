@@ -1,4 +1,16 @@
-console.log(AQ)
+//console.log(AnswersQuestions)
+//console.log(AnswersQuestions[0])
+
+function loadJSON1() {
+    let AQ = JSON.parse(AnswersQuestions);
+    console.log(AQ[0]);    // first category
+    console.log(AQ[50]);   // second category
+    console.log(AQ[100]);  // third category
+    // alert(AQ.length);
+    }
+loadJSON1()
+
+///////////////////////////////////////////////////////////////////        
 
 
 
