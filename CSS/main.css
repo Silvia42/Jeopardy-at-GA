@@ -1,14 +1,35 @@
 
+html,body{margin:0;padding:0}
+
+/* ########## F O N T S ############# */
+@font-face {font-family: LithosPro-Black;src: url("/Fonts/LithosPro-Black.otf");}
+@font-face {font-family: LithosPro-Bold; src: url("/Fonts/LithosPro-Bold.otf");}
+@font-face {font-family: LithosPro-ExtraLight;src: url("/Fonts/LithosPro-ExtraLight.otf");}
+@font-face {font-family: LithosPro-Light; src: url("/Fonts/LithosPro-Light.otf");}
+@font-face {font-family: LithosPro-Regular;  src: url("/Fonts/LithosPro-Regular.otf");}
 
 /* ########## C O L O R S ############# */
 :root {
   --wheelCenter: rgb(0,152,119);
   --myYellow:rgb(255,208,0);
-
+  --myGrey:rgb(200,200,200);
+  --myPink:rgb(255, 146, 153);
+  --myBlack:rgb(0, 0, 0);
+  --colorP1:rgb(182,105,224); /* color of Player 1 */
+  --colorP2:rgb(35,255,255); /* color of Player 2 */
+  --colorP3:rgb(255,94,0); /* color of Player 3 */
 }
-html,body{margin:0;padding:0}
+
+p {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
+  color: antiquewhite;
+}
+
 h1 {
-    color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1em;
+  color: antiquewhite;
 }
 /* <!-- Main BOX --> */
 .box0 {
@@ -49,11 +70,14 @@ h1 {
   width: 100vw;
   height: 3%;  
   background-color: var(--wheelCenter);
+  text-align: right;
 }
 .box4 p{
   margin: 0;
   padding: 0;
   border: 0;
+  font-size: 0.5em;
+
 }
 .box3PA {
   width: 70%;
@@ -66,6 +90,10 @@ h1 {
   height: 50%;  
   /* background-color: royalblue; */
   background-color: var(--wheelCenter);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: nowrap;
 }
 .box3A {
   width: 100%;
@@ -220,5 +248,62 @@ h1 {
 .logoWOJ img{
   height: 100%;
   width: auto;
+}
+
+/* ############################################################## */
+/* ############ styling PUZZLE  ################################# */
+/* ############################################################## */
+.puzzleChar{
+  position: absolute;
+  width: 32px;
+  height: 64px;
+  background-color: var(--myYellow);
+  box-shadow: 4px 4px var(--myBlack);
+}
+/* ############################################################## */
+/* ############  styling PLAYERs  ############################### */
+/* ############################################################## */
+.player{
+  /* position: absolute; */
+  width: 128px;
+  height: 64px;
+  box-shadow: 4px 4px var(--myBlack);
+  text-align: center;
+}
+.player h1{
+  color: var(--myBlack);
+  font-size: 1em;
+  text-shadow: 1px 1px var(--myGrey);
+}
+#p1{
+  background-color: var(--colorP1);
+}
+#p2{
+  background-color: var(--colorP2);
+}
+#p3{
+  background-color: var(--colorP3);
+}
+
+
+
+/* ############################################################## */
+/* ############ styling ALPHABET  ############################### */
+/* ############################################################## */
+.vowel{
+  position: relative;
+  top:0px;
+  width: 32px;
+  height: 64px;
+  background-color: var(--myPink);
+  box-shadow: 4px 4px var(--myBlack);
+}
+.alpha{
+  position: relative;
+  top:10px;
+  width: 32px;
+  height: 64px;
+  background-color: var(--myGrey);
+  box-shadow: 4px 4px var(--myBlack);
 }
 
