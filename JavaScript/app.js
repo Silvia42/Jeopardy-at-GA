@@ -1,28 +1,38 @@
 //console.log(AnswersQuestions)
 //console.log(AnswersQuestions[0])
-let categories
+let categories=[,,] //empty array
+let answers=[[,,,,,,],[,,,,,,],[,,,,,,]] //empty double array
+let questionStart=[[,,,,,,],[,,,,,,],[,,,,,,]] 
+let questionEnd=[[,,,,,,],[,,,,,,],[,,,,,,]] 
+let options=[[,,,,,,],[,,,,,,],[,,,,,,]] 
+
+//console.log(puzzleAnswer)
 
 function loadJSON1() {
-    let AQ = JSON.parse(AnswersQuestions);
-    console.log(AQ[0]);    // first category
-    console.log(AQ[50]);   // second category
-    console.log(AQ[100]);  // third category
-    // alert(AQ.length);
-    
-    categories=[AQ[0],AQ[50],AQ[100]]
-    
-
+    let AQ = JSON.parse(answersQuestions);
+    // alert(AQ.length); // -> 150 = ( 1+(1+1+1+4)*7 )*3  
+    // category / answer / qBegin / qEnd / options 4x
+    for (let c=0;c<3;c++){  // c is number of category
+        categories[c]=AQ[50*c]
+        for (let i=0;i<7;i++){  // i is number of answer/question
+            answers[c][i]=AQ[50*c+1+7*i]
+            questionStart[c][i]=AQ[50*c+1+7*i+1]
+            questionEnd[c][i]=AQ[50*c+1+7*i+2]
+            //  there are 4 options for each answers/question
+            options[c][i]=AQ.slice(50*c+1+7*i+3,50*c+1+7*i+7)
+        }
+    }
 } // end of function loadJSON1() 
 
 loadJSON1()
 // alert(categories)
-
-
-
-
-
-///////////////////////////////////////////////////////////////////        
-
+// alert(answers)
+// alert(questionStart)
+// alert(questionEnd)
+// alert(options)
+///////////////////////////////////////////////////////////////////  
+///////////          Data was loaded          /////////////////////      
+///////////////////////////////////////////////////////////////////
 
 
 // "slice" = circle sector
