@@ -129,7 +129,7 @@ h1 {
   width: 5em;
   height: 4em;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  transform: rotate(55deg);
+  transform: rotate(60deg);
   position: absolute;
   bottom: 19px;
   left: -48px;
