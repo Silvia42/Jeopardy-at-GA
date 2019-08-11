@@ -24,7 +24,8 @@ function spinWheel(angle){
         //target.style.transform = 'translate(100px, 100px)';
         // wheelAngle=(wheelAngle+angle)%360;
         //////////////////////////////////////////wheelAngle+=angle
-        //console.log(wheelAngle)
+        console.log("Wheel finished rotation")
+        wheelReturn(wheelValues[Math.floor(((wheelAngle-startAngle)%360)/15)])
       });
 }
 
@@ -34,39 +35,27 @@ $('body').ready(function() {
 });
 
 function wheelReturn(val){
-    //console.log('www',wheelValues)
-    console.log(val)
+    console.log('Returned \n value from wheel is:',val)
 }
 
 $('#spin').click(function() {
     console.log('"SPIN" was clicked')
-    //addAngle=Math.floor(Math.random()*360)
     // wheel will stop only in the middle of slice
     // 15deg * 24 slices
     addAngle=15*Math.floor(Math.random()*25)
-    console.log('math',addAngle, addAngle/15)
+    //console.log('math',addAngle, addAngle/15)
     //addAngle=15
     wheelAngle+=addAngle+360
-    // spinWheel(addAngle+360)
     spinWheel(wheelAngle)
-
-                // $.when( spinWheel(addAngle+360) ).done(function() {
-                //     // $( "p" ).append( " Finished! " );
-                //     console.log(wheelAngle,addAngle)
-                //     console.log(wheelAngle-startAngle)%360
-                //     console.log('index in array',Math.floor(((wheelAngle-startAngle)%360)/15))
+    ////// This does not work as expected. 
+    ////// Function spinWheel is done before rotation of the wheel is finished.
+                // $.when( spinWheel(wheelAngle) ).done(function() {
+                //     // Wheel Rotation Finished! 
                 //     wheelReturn(wheelValues[Math.floor(((wheelAngle-startAngle)%360)/15)])
-
-                //   });
-
-    console.log(wheelAngle,addAngle)
-    console.log('% 360 =',wheelAngle-startAngle)%360
-    console.log('index in array',Math.floor(((wheelAngle-startAngle)%360)/15))
-    wheelReturn(wheelValues[Math.floor(((wheelAngle-startAngle)%360)/15)])
+                // });
   });
 
-///// wheelAngle+360+angle
-///// wheelAngle+=angle
+
 
 
 
