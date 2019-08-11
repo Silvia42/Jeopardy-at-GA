@@ -5,10 +5,30 @@
 // Quiz material is made by informations from: https://www.w3schools.com      ////
 //////////////////////////////////////////////////////////////////////////////////
 
-// category / answer / question / options
+// category / answer / qBegin / options / qEnd
 // correct option is starting with *
-const AQ='{"cat":"skeleton",[{"answer":"HTML element for the largest heading.","question":"What is ","options":["<h6>","<heading>","*<h1>","<head>"]}]}'
-
+const AQ='{"cat":"skeleton",\
+                [{"answer":"HTML element for the largest heading.",\
+                "qBegin":"What is ","qEnd":" ?","options":["<h6>","<heading>","*<h1>","<head>"]}\
+                ,\
+                {"answer":"HTML element for inserting a line break.",\
+                "qBegin":"What is ","qEnd":" ?","options":["<break>","*<br>","<lb>","<bl>"]}\
+                ,\
+                {"answer":"It indicates an end tag.",\
+                "qBegin":"What does character ","qEnd":" indicate?","options":["/","<",">","*\\"]}\
+                ,\
+                {"answer":"HTML element for inserting a line break.",\
+                "qBegin":"What is ","qEnd":" ?","options":["<break>","*<br>","<lb>","<bl>"]}\
+                ,\
+                {"answer":"HTML element for inserting a line break.",\
+                "qBegin":"What is ","qEnd":" ?","options":["<break>","*<br>","<lb>","<bl>"]}\
+                ,\
+                {"answer":"HTML element for inserting a line break.",\
+                "qBegin":"What is ","qEnd":" ?","options":["<break>","*<br>","<lb>","<bl>"]}\
+                ,\
+                {"answer":"HTML element for inserting a line break.",\
+                "qBegin":"What is ","qEnd":" ?","options":["<break>","*<br>","<lb>","<bl>"]}\
+            ]}'
 
 
 
