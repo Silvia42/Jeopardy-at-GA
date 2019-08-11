@@ -48,8 +48,8 @@ const AnswersQuestions='["skeleton",\
                 "HTML element for inserting a line break.",\
                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
                 ,\
-                "HTML element for inserting a line break.",\
-                "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+                "Cross-Origin Resource Sharing",\
+                "What is ","of a web browser?","a safe feature","portability","*vulnerability","an antifragile feature"\
                 ,\
                 "brain",\
                 "HTML element for the largest heading.",\
@@ -70,10 +70,11 @@ const AnswersQuestions='["skeleton",\
                 "HTML element for inserting a line break.",\
                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
                 ,\
-                "HTML element for inserting a line break.",\
-                "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+                "Using variables and functions even before they are declared.",\
+                "What is "," ?","*hoisting","compiled language","interpreted language","declaration"\
             ]'
 
+// Parsing doesn't work ............ yet
 
 // myObj = ["skelet",{name: "John", age: 31, city: "New York"}];
 // myJSON = JSON.stringify(myObj);
@@ -103,5 +104,72 @@ const AnswersQuestions='["skeleton",\
 //                 "qBegin":"What is ","qEnd":" ?","options":["<break>","*<br>","<lb>","<bl>"]}\
 //             ]]'
 
+// ///////////////////////////////////////  BACKUP of the correct data
+// const AnswersQuestions='["skeleton",\
+//                 "HTML element for the largest heading.",\
+//                 "What is "," ?","<h6>","<heading>","*<h1>","<head>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "It indicates an end tag.",\
+//                 "What does character "," indicate?","slash","<",">","*backslash"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "skin",\
+//                 "HTML element for the largest heading.",\
+//                 "What is "," ?","<h6>","<heading>","*<h1>","<head>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "It indicates an end tag.",\
+//                 "What does character "," indicate?","slash","<",">","*backslash"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "brain",\
+//                 "HTML element for the largest heading.",\
+//                 "What is "," ?","<h6>","<heading>","*<h1>","<head>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "It indicates an end tag.",\
+//                 "What does character "," indicate?","slash","<",">","*backslash"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//                 ,\
+//                 "HTML element for inserting a line break.",\
+//                 "What is "," ?","<break>","*<br>","<lb>","<bl>"\
+//             ]'
 
 

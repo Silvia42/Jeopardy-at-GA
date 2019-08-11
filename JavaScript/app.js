@@ -1,5 +1,6 @@
 //console.log(AnswersQuestions)
 //console.log(AnswersQuestions[0])
+let categories
 
 function loadJSON1() {
     let AQ = JSON.parse(AnswersQuestions);
@@ -7,8 +8,18 @@ function loadJSON1() {
     console.log(AQ[50]);   // second category
     console.log(AQ[100]);  // third category
     // alert(AQ.length);
-    }
+    
+    categories=[AQ[0],AQ[50],AQ[100]]
+    
+
+} // end of function loadJSON1() 
+
 loadJSON1()
+// alert(categories)
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////        
 
