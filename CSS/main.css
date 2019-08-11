@@ -257,6 +257,7 @@ h1 {
   position: absolute;
   width: 32px;
   height: 64px;
+  border-radius: 4px;
   background-color: var(--myYellow);
   box-shadow: 4px 4px var(--myBlack);
 }
@@ -267,6 +268,7 @@ h1 {
   /* position: absolute; */
   width: 128px;
   height: 64px;
+  border-radius: 4px;
   box-shadow: 4px 4px var(--myBlack);
   text-align: center;
 }
@@ -295,6 +297,7 @@ h1 {
   top:0px;
   width: 32px;
   height: 64px;
+  border-radius: 4px;
   background-color: var(--myPink);
   box-shadow: 4px 4px var(--myBlack);
 }
@@ -303,6 +306,7 @@ h1 {
   top:10px;
   width: 32px;
   height: 64px;
+  border-radius: 4px;
   background-color: var(--myGrey);
   box-shadow: 4px 4px var(--myBlack);
 }

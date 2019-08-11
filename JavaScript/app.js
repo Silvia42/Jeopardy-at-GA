@@ -1,6 +1,10 @@
+console.log(AQ)
+
+
+
 // "slice" = circle sector
-let startAngle=20+360
-let wheelAngle=startAngle
+let startAngle=20+360       // Angle for the first rotation of the wheel
+let wheelAngle=startAngle   // actual angle of the wheel
 // beginnig Angle of wheel, first value in array
 // 24 slices: 360deg / 24 = 15 deg
 // midlle of slice +-7.5 deg
