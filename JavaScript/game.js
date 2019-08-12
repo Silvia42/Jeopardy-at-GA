@@ -11,6 +11,10 @@ let gameState=0
 // 101 = Is player 1 turn, Pick a letter or solve a puzzle
 // 102 = Is player 2 turn, Pick a letter or solve a puzzle
 // 103 = Is player 3 turn, Pick a letter or solve a puzzle
+console.log('PLAY GAME',gameState)
+
+// Actual Value from the wheel (set in function wheelReturn(val))
+let wheelValue=0
 
 
 let puzzleBox=document.getElementsByClassName("puzzleChar")
@@ -27,6 +31,28 @@ puzzleAnswer.forEach(function(row) {
   });
 
   $('#playGame').on('click', function() {
-    console.log('PLAY GAME')
-    
+    gameState=1
+    console.log('PLAY GAME',gameState)
   })
+
+ // -2 = FREE PLAY = choose letter without solving QA Jeopardy
+ // -1 = LOST A TURN
+ //  0 = BANKRUPT
+ // positive INT = $ value
+ function wheelReturn(val){
+    wheelValue=val  // Actual Value from the wheel
+    console.log('Returned \n value from wheel is:',val)
+    let p=gameState%3 // p is player 
+    let player=document.getElementsByClassName("points")[p]
+    if (val==0){    //  0 = BANKRUPT
+        player.innerHTML='0'
+    }
+    if (val==-1){   // -1 = LOST A TURN
+        p=(p+1)%3   // next player
+        gameState=p // starting with spin
+    }
+    if (val==-2){   // -2 = FREE PLAY = choose letter without solving QA Jeopardy
+        gameState+=100
+    }
+
+}

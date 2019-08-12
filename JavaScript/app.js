@@ -46,7 +46,7 @@ let wheelValues=[-2,650,0,600,500,550,600,0,700,500,650,600,700,600,500,2500,0,9
 // -1 = LOST A TURN
 //  0 = BANKRUPT
 // positive INT = $ value
-// console.log('www',wheelValues)
+// console.log('wheel',wheelValues)
 // console.log(wheelValues.length) // 24
 
 function spinWheel(angle){
@@ -66,14 +66,12 @@ function spinWheel(angle){
       });
 }
 
+// function wheelReturn(val) is in "game.js"
+
 $('body').ready(function() {
     console.log( "Body ready!" );  
     spinWheel(startAngle)
 });
-
-function wheelReturn(val){
-    console.log('Returned \n value from wheel is:',val)
-}
 
 $('#spin').click(function() {
     console.log('"SPIN" was clicked')
