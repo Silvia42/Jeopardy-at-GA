@@ -2,11 +2,11 @@
 html,body{margin:0;padding:0}
 
 /* ########## F O N T S ############# */
-@font-face {font-family: LithosPro-Black;src: url("/Fonts/LithosPro-Black.otf");}
-@font-face {font-family: LithosPro-Bold; src: url("/Fonts/LithosPro-Bold.otf");}
-@font-face {font-family: LithosPro-ExtraLight;src: url("/Fonts/LithosPro-ExtraLight.otf");}
-@font-face {font-family: LithosPro-Light; src: url("/Fonts/LithosPro-Light.otf");}
-@font-face {font-family: LithosPro-Regular;  src: url("/Fonts/LithosPro-Regular.otf");}
+@font-face {font-family: LithosPro-Black;src: url("../Fonts/LithosPro-Black.otf");}
+@font-face {font-family: LithosPro-Bold; src: url("../Fonts/LithosPro-Bold.otf");}
+@font-face {font-family: LithosPro-ExtraLight;src: url("../Fonts/LithosPro-ExtraLight.otf");}
+@font-face {font-family: LithosPro-Light; src: url("../Fonts/LithosPro-Light.otf");}
+@font-face {font-family: LithosPro-Regular;  src: url("../Fonts/LithosPro-Regular.otf");}
 
 /* ########## C O L O R S ############# */
 :root {
@@ -22,12 +22,14 @@ html,body{margin:0;padding:0}
 
 p {
   font-family: 'Roboto Condensed', sans-serif;
+  font-family: LithosPro-Regular;
   font-size: 1em;
   color: antiquewhite;
 }
 
 h1 {
   font-family: 'Roboto Condensed', sans-serif;
+  font-family: LithosPro-Regular;
   font-size: 1em;
   color: antiquewhite;
 }
@@ -129,6 +131,7 @@ h1 {
   object-fit: contain;
 }
 #spin{
+  font-family: LithosPro-Regular;
   font-size: 1em;
   width: 5em;
   height: 4em;
@@ -273,6 +276,9 @@ h1 {
   border-radius: 4px;
   box-shadow: 4px 4px var(--myBlack);
   text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 .player h1{
   color: var(--myBlack);
@@ -288,17 +294,40 @@ h1 {
 #p3{
   background-color: var(--colorP3);
 }
+.points{
+  width: 100px;
+  height:32px;
+  border-radius: 4px;
+  background-color:white;
+}
+#p1{
+
+}
+#p2{
+ 
+}
+#p3{
+
+}
 
 
 
 /* ############################################################## */
 /* ############ styling ALPHABET  ############################### */
 /* ############################################################## */
-.box3A{
+.box3A {
   color:black;
-  font-family: LithosPro-Black;
-  font-size: 1em;
-
+  font-family: LithosPro-Regular;
+  font-size: 2em;
+  text-align: center;
+  line-height: 64px;
+}
+.box2{
+  color:black;
+  font-family: LithosPro-Regular;
+  font-size: 3em;
+  text-align: center;
+  line-height: 64px;
 }
 
 .vowel{

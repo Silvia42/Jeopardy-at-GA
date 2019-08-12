@@ -9,6 +9,7 @@ let letterHeight=64
 for (let i=0;i<60;i++){
     let myDiv = document.createElement('div');
     myDiv.className="puzzleChar";
+    //myDiv.innerHTML='w'
     myDiv.style.top=(puzzleStartTop+Math.floor(i/15)*(spaceBetweenRows+letterHeight)).toString()+'px';
     myDiv.style.left= (puzzleStartLeft+(i%15)*(spaceBetweenColumns+letterWidth)).toString()+'px';
     myDiv.style.width=letterWidth.toString()+'px';
