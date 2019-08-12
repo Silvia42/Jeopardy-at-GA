@@ -7,7 +7,8 @@
 
 // “Talk is cheap. Show me the code.” 
 // ― Linus Torvalds
-const puzzleAnswer= ["    Talk is    ","     cheap     ","    Show me    ","   the code    "];
+let puzzleAnswer= ["    Talk is    ","     cheap     ","    Show me    ","   the code    "];
+for (let i=0;i<4;i++){puzzleAnswer[i]=puzzleAnswer[i].toLowerCase()}
 
 // category / answer / qBegin / qEnd / options 4x
 // correct option is starting with *

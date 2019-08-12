@@ -389,12 +389,20 @@ h1 {
   font-family: LithosPro-Regular;
   font-size: 3em;
   text-align: center;
-  line-height: 444px;
-  /* vertical-align: middle; */
+  /* line-height: 444px; */
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+
 }
 .buttonOption{
   width: 80vw;
   height: 10vh;
-  color:var(--myGrey);
-  
+  background-color:var(--myGrey);
+  color: black;
+  font-family: LithosPro-Regular;
+  font-size: 0.5em;
+  padding: 2px;
+  margin: 2px;
+
 }

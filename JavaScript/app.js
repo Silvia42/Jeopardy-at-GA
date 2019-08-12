@@ -74,7 +74,7 @@ $('body').ready(function() {
 });
 
 $('#spin').click(function() {
-    console.log('"SPIN" was clicked')
+    console.log('"SPIN" was clicked','gameState=',gameState)
     // wheel will stop only in the middle of slice
     // 15deg * 24 slices
     addAngle=15*Math.floor(Math.random()*25)

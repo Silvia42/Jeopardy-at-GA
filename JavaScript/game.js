@@ -89,16 +89,22 @@ function jeopardy(numQA){
     //$('.balance').addClass("zero");
     //$(myDiv).addClass("divJeopardy");
     myBody.appendChild(myDiv)
-
     //console.log(myDiv,myDiv.parentElement)
-    // Show ANSWER
-    //myDiv.innerHTML=consonants[i]
-    //let answers=[[,,,,,,],[,,,,,,],[,,,,,,]]
-    
+    /////// Show ANSWER ////////////////////////////////////////////////
     myDiv.innerHTML=answers[Math.floor(numQA/7)][numQA%7]
     //console.log(numQA,Math.floor(numQA/3),numQA%3)
     
-    // Make OPTION buttons
+    /////// Make OPTION buttons ////////////////////////////////////////
+    let corectOptionId // will be set, when string is starting with '*'
+    for (let i=0;i<4;i++){
+        let buttonOption = document.createElement("BUTTON",'buttonOption');
+        buttonOption.className="buttonOption"
+        myDiv.appendChild(buttonOption)
+        buttonOption.innerHTML="asdf"+i.toString()
+        myDiv.appendChild(buttonOption)
+    }
+
+
     // $(myDiv).append(
     //     createButton('Done', toggleDone, 'done green'),
     //     createButton('Delete', function() {
