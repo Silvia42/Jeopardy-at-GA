@@ -14,7 +14,10 @@ Highlits specifications:
 ● Set amount for Jeopardy when solving PUZZLE
 ● JEOPARDY: wrong solution = lost the amount
 ```
+
 <a href="https://github.com/Silvia42/Wheel-Of-Jeopardy/projects/1">Kanban Project Board</a>
+
+<a href="https://silvia42.github.io/Wheel-Of-Jeopardy/">Application</a>
 
 <img src="Documentation/MainScreenDiagram.001.png" alt="Main Screen Diagram">
 
