@@ -80,6 +80,7 @@ function letterClick(myLetter){
 }
 
 function jeopardy(numQA){
+    // I am getting already numbQA=consonants.indexOf(myLetter)
     console.log('doing jeopardy')
     let myDiv = document.createElement('div');
     let myBody=document.getElementsByTagName("body")[0]
@@ -88,10 +89,35 @@ function jeopardy(numQA){
     //$('.balance').addClass("zero");
     //$(myDiv).addClass("divJeopardy");
     myBody.appendChild(myDiv)
+    myDiv.onclick=function(e) {
+        this.parentNode.removeChild(this);
+    };  
     //console.log(myDiv,myDiv.parentElement)
+    // Show ANSWER
+    //myDiv.innerHTML=consonants[i]
+    //let answers=[[,,,,,,],[,,,,,,],[,,,,,,]]
+    
+    myDiv.innerHTML=answers[Math.floor(numQA/7)][numQA%7]
+    console.log(numQA,Math.floor(numQA/3),numQA%3)
+    //myDiv.innerHTML=answers[0][0]
+
+    // Make OPTION buttons
+    // $(myDiv).append(
+    //     createButton('Done', toggleDone, 'done green'),
+    //     createButton('Delete', function() {
+    //         $('#dialogDel').data('mydata', $(this).parents('li')).dialog('open');
+    //     }).addClass('del red')
 
 
+
+
+    ///// Play Jeopardy ////////////////////////////////
 }
+
+$('.divJeopardy').click(function(event) { 
+    //$('.divJeopardy').remove();
+    //event.target.
+})
 
 // $('.alpha,.vowel').click(function() {
 //     event.preventDefault();
