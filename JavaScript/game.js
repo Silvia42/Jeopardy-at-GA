@@ -54,5 +54,18 @@ puzzleAnswer.forEach(function(row) {
     if (val==-2){   // -2 = FREE PLAY = choose letter without solving QA Jeopardy
         gameState+=100
     }
-
 }
+
+// function letterClick(){
+
+// }
+
+$('.alpha,.vowel').click(function() {
+    console.log('letter was clicked')
+
+})
+
+//     let newButton = $('<button></button>').text(buttonText).on('click', clickFunction);
+
+// createButton('Delete', function() {
+//     $('#dialogDel').data('mydata', $(this).parents('li')).dialog('open');
