@@ -29,10 +29,11 @@ let alphaSpaceBetweenRows=10
 let alphaWidth=32
 let alphaHeight=64
 /// VOWELS: aeiou
-let vovels="aeiou"
+const vovels="aeiou"
 for (let i=0;i<5;i++){
     let myDiv = document.createElement('div');
     myDiv.className="vowel";
+    myDiv.innerHTML=vovels[i]
     myDiv.style.top= alphaStartTop.toString()+'px';
     myDiv.style.left= (alphaStartLeft+i*(alphaBetweenColumns+alphaWidth)).toString()+'px';
     myDiv.style.width=alphaWidth.toString()+'px';
@@ -44,9 +45,11 @@ for (let i=0;i<5;i++){
     // myDiv.addEventListener('mouseover', goGreen);
 }
 /// CONSONANT
+const consonants = "bcdfghjklmnpqrstvwxyz"
 for (let i=0;i<21;i++){
     let myDiv = document.createElement('div');
     myDiv.className="alpha";
+    myDiv.innerHTML=consonants[i]
     myDiv.style.top= (alphaStartTop+alphaHeight+alphaSpaceBetweenRows).toString()+'px';
     myDiv.style.left= (alphaStartLeft+i*(alphaBetweenColumns+alphaWidth)).toString()+'px';
     myDiv.style.width=alphaWidth.toString()+'px';

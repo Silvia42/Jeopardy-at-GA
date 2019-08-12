@@ -294,6 +294,13 @@ h1 {
 /* ############################################################## */
 /* ############ styling ALPHABET  ############################### */
 /* ############################################################## */
+.box3A{
+  color:black;
+  font-family: LithosPro-Black;
+  font-size: 1em;
+
+}
+
 .vowel{
   /* position: relative; */
   position: absolute;
@@ -301,11 +308,17 @@ h1 {
   background-color: var(--myPink);
   box-shadow: 4px 4px var(--myBlack);
 }
+.vowelUsed{
+  color: var(--myPink);
+}
 .alpha{
   /* position: relative; */
   position: absolute;
   border-radius: 4px;
   background-color: var(--myGrey);
   box-shadow: 4px 4px var(--myBlack);
+}
+.alphaUsed{
+  color: var(--myGrey);
 }
 
