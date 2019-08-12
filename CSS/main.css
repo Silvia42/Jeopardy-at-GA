@@ -18,6 +18,7 @@ html,body{margin:0;padding:0}
   --colorP1:rgb(182,105,224); /* color of Player 1 */
   --colorP2:rgb(35,255,255); /* color of Player 2 */
   --colorP3:rgb(255,94,0); /* color of Player 3 */
+
 }
 
 p {
@@ -264,6 +265,12 @@ h1 {
   position: absolute;
   border-radius: 4px;
   background-color: var(--myYellow);
+  box-shadow: 4px 4px var(--myBlack);
+}
+.puzzleCharHere{
+  position: absolute;
+  border-radius: 4px;
+  background-color: whitesmoke;
   box-shadow: 4px 4px var(--myBlack);
 }
 /* ############################################################## */

@@ -7,7 +7,7 @@
 
 // “Talk is cheap. Show me the code.” 
 // ― Linus Torvalds
-const puzzleAnswer= ["Talk is","cheap","Show me","the code"];
+const puzzleAnswer= ["    Talk is    ","     cheap     ","    Show me    ","   the code    "];
 
 // category / answer / qBegin / qEnd / options 4x
 // correct option is starting with *
