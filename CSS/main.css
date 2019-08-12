@@ -372,3 +372,17 @@ h1 {
   padding: 2em 0;
   /* border: 3px solid green; */
 }
+
+/* ############################################################## */
+/* ############ styling JEOPARDY  ############################### */
+/* ############################################################## */
+
+.divJeopardy{
+  width: 100vw;
+  height: 80vh;
+  background-color: blue;
+  z-index: 999;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+}

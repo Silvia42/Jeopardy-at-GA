@@ -16,6 +16,9 @@ console.log('PLAY GAME',gameState)
 // Actual Value from the wheel (set in function wheelReturn(val))
 let wheelValue=0
 
+// Clicked letter
+let letterClicked=''
+
 
 let puzzleBox=document.getElementsByClassName("puzzleChar")
 let l=0
@@ -40,29 +43,66 @@ puzzleAnswer.forEach(function(row) {
  //  0 = BANKRUPT
  // positive INT = $ value
  function wheelReturn(val){
+    event.preventDefault();
     wheelValue=val  // Actual Value from the wheel
     console.log('Returned \n value from wheel is:',val)
     let p=gameState%3 // p is player 
     let player=document.getElementsByClassName("points")[p]
-    if (val==0){    //  0 = BANKRUPT
-        player.innerHTML='0'
+    if (gameState===0) {
+        gameState=1
     }
-    if (val==-1){   // -1 = LOST A TURN
-        p=(p+1)%3   // next player
-        gameState=p // starting with spin
-    }
-    if (val==-2){   // -2 = FREE PLAY = choose letter without solving QA Jeopardy
-        gameState+=100
+    else if (gameState>0 && gameState<4){
+        console.log('gameState is: ',gameState)
+        if (val==0){    //  0 = BANKRUPT
+            player.innerHTML='0'
+        }
+        else if (val==-1){   // -1 = LOST A TURN
+            p=(p+1)%3   // next player
+            gameState=p // starting with spin
+        }
+        else if (val==-2){   // -2 = FREE PLAY = choose letter without solving QA Jeopardy
+            gameState+=100
+        }
+        else {
+            gameState+=10
+            // console.log('I am here.','gameState is: ',gameState)
+        }
     }
 }
 
-// function letterClick(){
+function letterClick(myLetter){
+ console.log('myLetter is:',myLetter,"gameState=",gameState)
+ if (gameState>10 && gameState<14){
+    numberQA=consonants.indexOf(myLetter)
+    jeopardy(numberQA)
 
-// }
+ }
+}
 
-$('.alpha,.vowel').click(function() {
-    console.log('letter was clicked')
+function jeopardy(numQA){
+    console.log('doing jeopardy')
+    let myDiv = document.createElement('div');
+    let myBody=document.getElementsByTagName("body")[0]
+    //console.log(myBody)
+    myDiv.className="divJeopardy"
+    //$('.balance').addClass("zero");
+    //$(myDiv).addClass("divJeopardy");
+    myBody.appendChild(myDiv)
+    //console.log(myDiv,myDiv.parentElement)
 
+
+}
+
+// $('.alpha,.vowel').click(function() {
+//     event.preventDefault();
+$('.alpha,.vowel').click(function(event) {   
+    event.preventDefault();
+    let which = event.target;
+    //let which = $( this )
+    letterClicked=$( which ).text();
+    //console.log('letter was clicked',which,letterClicked)
+    console.log('Clicked: ',letterClicked)
+    letterClick(letterClicked)
 })
 
 //     let newButton = $('<button></button>').text(buttonText).on('click', clickFunction);
