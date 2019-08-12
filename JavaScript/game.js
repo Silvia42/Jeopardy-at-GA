@@ -9,6 +9,10 @@ puzzleAnswer.forEach(function(row) {
             $(puzzleBox[l]).addClass("puzzleCharHere");
         }
         l++
-
     }
   });
+
+  $('#playGame').on('click', function() {
+    console.log('PLAY GAME')
+    
+  })
