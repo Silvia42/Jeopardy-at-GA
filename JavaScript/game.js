@@ -106,25 +106,27 @@ function jeopardy(numQA){
     //     }).addClass('del red')
 
 
+////////////////////////////////////////////////////vvv///// temporally function
+        myDiv.onclick=function(e) {
+            this.parentNode.removeChild(this);
+            for(let i=0;i<4;i++){
+                for (let j=0;j<15;j++){
+                    if (puzzleAnswer[i][j]==letterClicked){
+                        console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
+                        // console.log(letterClicked,letterClick) // variable, function
+                        document.getElementsByClassName("puzzleChar")[i*15+j].innerHTML=letterClicked
+                    }
+                }
+            }
+        }
+////////////////////////////////////////////////////^^^/////
+
 
 
     ///// Play Jeopardy ///// end of function jeopardy(numQA)  ///////////////////////////
 }
 
-////////////////////////////////////////////////////vvv///// temporally function
-myDiv.onclick=function(e) {
-    this.parentNode.removeChild(this);
-    for(let i=0;i<4;i++){
-        for (let j=0;j<15;j++){
-            if (puzzleAnswer[i][j]==letterClicked){
-                console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
-                // console.log(letterClicked,letterClick) // variable, function
-                document.getElementsByClassName("puzzleChar")[i*15+j].innerHTML=letterClicked
-            }
-        }
-    }
-}
-////////////////////////////////////////////////////^^^/////
+
 
 $('.divJeopardy').click(function(event) { 
     //$('.divJeopardy').remove();
