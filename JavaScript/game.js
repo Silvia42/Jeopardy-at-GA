@@ -89,18 +89,15 @@ function jeopardy(numQA){
     //$('.balance').addClass("zero");
     //$(myDiv).addClass("divJeopardy");
     myBody.appendChild(myDiv)
-    myDiv.onclick=function(e) {
-        this.parentNode.removeChild(this);
-    };  
+
     //console.log(myDiv,myDiv.parentElement)
     // Show ANSWER
     //myDiv.innerHTML=consonants[i]
     //let answers=[[,,,,,,],[,,,,,,],[,,,,,,]]
     
     myDiv.innerHTML=answers[Math.floor(numQA/7)][numQA%7]
-    console.log(numQA,Math.floor(numQA/3),numQA%3)
-    //myDiv.innerHTML=answers[0][0]
-
+    //console.log(numQA,Math.floor(numQA/3),numQA%3)
+    
     // Make OPTION buttons
     // $(myDiv).append(
     //     createButton('Done', toggleDone, 'done green'),
@@ -111,8 +108,23 @@ function jeopardy(numQA){
 
 
 
-    ///// Play Jeopardy ////////////////////////////////
+    ///// Play Jeopardy ///// end of function jeopardy(numQA)  ///////////////////////////
 }
+
+////////////////////////////////////////////////////vvv///// temporally function
+myDiv.onclick=function(e) {
+    this.parentNode.removeChild(this);
+    for(let i=0;i<4;i++){
+        for (let j=0;j<15;j++){
+            if (puzzleAnswer[i][j]==letterClicked){
+                console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
+                // console.log(letterClicked,letterClick) // variable, function
+                document.getElementsByClassName("puzzleChar")[i*15+j].innerHTML=letterClicked
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////^^^/////
 
 $('.divJeopardy').click(function(event) { 
     //$('.divJeopardy').remove();
