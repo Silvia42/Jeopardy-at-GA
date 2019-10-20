@@ -22,7 +22,7 @@ for (let i=0;i<60;i++){
 }
 
 /////////////////  ALPHABET //////////////////////////////////////////////
-let alphaStartTop=570
+let alphaStartTop=20 //570
 let alphaStartLeft=50
 let vowelMoveRight=500
 let alphaBetweenColumns=5

@@ -20,6 +20,7 @@ function loadJSON1() {
             questionEnd[c][i]=AQ[50*c+1+7*i+2]
             //  there are 4 options for each answers/question
             options[c][i]=AQ.slice(50*c+1+7*i+3,50*c+1+7*i+7)
+            //console.log(options[c][i])
         }
     }
 } // end of function loadJSON1() 
@@ -89,12 +90,4 @@ $('#spin').click(function() {
                 //     wheelReturn(wheelValues[Math.floor(((wheelAngle-startAngle)%360)/15)])
                 // });
   });
-
-
-
-
-
-
-
-
   

@@ -16,7 +16,28 @@ console.log('PLAY GAME',gameState)
 // Actual Value from the wheel (set in function wheelReturn(val))
 let wheelValue=0
 
-// Clicked letter
+// Set all players INACTIVE /////////////////////////////////////
+setAllPlayersInactive()
+// document.getElementById("act1").style.visibility = "hidden";
+// document.getElementById("act2").style.visibility = "hidden";
+// document.getElementById("act3").style.visibility = "hidden";
+// document.getElementById("act3").style.visibility = "visible";
+function setAllPlayersInactive(){
+    for (let p=1;p<4;p++){
+        let el="act"+p.toString()
+        document.getElementById(el).style.visibility = "hidden"; 
+    }
+}
+function setActivePlayer(p){
+    setAllPlayersInactive()
+    let el="act"+p.toString()
+    console.log('el',el)
+    document.getElementById(el).style.visibility = "visible"
+}  
+// setActivePlayer(3)
+
+//////////////////////////////////////////////////////////////////////////
+// Clicked letter ////////////////////////////////////////////////////////
 let letterClicked=''
 
 
@@ -35,9 +56,15 @@ puzzleAnswer.forEach(function(row) {
 
   $('#playGame').on('click', function() {
     gameState=1
+    setActivePlayer(1)
     console.log('PLAY GAME',gameState)
+
   })
 
+
+ //////////////////////////////////////////////////////////////////////////
+ ///////////////////////////// W H E E L //////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////// 
  // -2 = FREE PLAY = choose letter without solving QA Jeopardy
  // -1 = LOST A TURN
  //  0 = BANKRUPT
@@ -46,13 +73,18 @@ puzzleAnswer.forEach(function(row) {
     event.preventDefault();
     wheelValue=val  // Actual Value from the wheel
     console.log('Returned \n value from wheel is:',val)
+    console.log('gameState is: ',gameState)
     let p=gameState%3 // p is player 
-    let player=document.getElementsByClassName("points")[p]
+    if (p) {
+        setActivePlayer(p)
+        let player=document.getElementsByClassName("points")[p]
+    }
     if (gameState===0) {
-        gameState=1
+        // gameState=1
+        // gameis starting, when START GAME button is clicked
     }
     else if (gameState>0 && gameState<4){
-        console.log('gameState is: ',gameState)
+        console.log('*BEFORE if*gameState is: ',gameState)
         if (val==0){    //  0 = BANKRUPT
             player.innerHTML='0'
         }
@@ -68,8 +100,12 @@ puzzleAnswer.forEach(function(row) {
             // console.log('I am here.','gameState is: ',gameState)
         }
     }
+    console.log('*AFTER if*gameState is: ',gameState)
 }
 
+ //////////////////////////////////////////////////////////////////////////
+ /////////////////////////// L E T T E R  /////////////////////////////////
+ ////////////////////////////////////////////////////////////////////////// 
 function letterClick(myLetter){
  console.log('myLetter is:',myLetter,"gameState=",gameState)
  if (gameState>10 && gameState<14){
@@ -78,7 +114,9 @@ function letterClick(myLetter){
 
  }
 }
-
+//////////////////////////////////////////////////////////////////////////
+//////////////////////// J E O P A R D Y  ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////
 function jeopardy(numQA){
     // I am getting already numbQA=consonants.indexOf(myLetter)
     console.log('doing jeopardy')
@@ -100,10 +138,18 @@ function jeopardy(numQA){
         let buttonOption = document.createElement("BUTTON",'buttonOption');
         buttonOption.className="buttonOption"
         myDiv.appendChild(buttonOption)
-        buttonOption.innerHTML="asdf"+i.toString()
+        //answers[Math.floor(numQA/7)][numQA%7]
+        console.log(options[0][0][i])
+        let s=options[0][0][i]
+        buttonOption.innerHTML =  /// "option "+(i+1).toString()
+            questionStart[Math.floor(numQA/7)][numQA%7] +
+            // options[Math.floor(numQA/7)][numQA%7][i].replace("<","&lt") +
+            encoe(options[Math.floor(numQA/7)][numQA%7][i]) +
+            questionEnd[Math.floor(numQA/7)][numQA%7]
+        
+        // "asdf"+i.toString()
         myDiv.appendChild(buttonOption)
     }
-
 
     // $(myDiv).append(
     //     createButton('Done', toggleDone, 'done green'),

@@ -1,0 +1,9 @@
+cd ......../Desktop/SEI/MyProjects/001.WheelOfJeopardy/WOJ.001
+
+git status
+
+git add CSS/ Documentation/
+git add Fonts/ Images/ Pages/
+git add README.md gitCommands.txt index.html 
+
+
