@@ -363,6 +363,18 @@ function checkAnswer(who,answ){
     console.log(pzzl,answ,pzzl===answ)
     if (pzzl===answ){
         console.log('Player ',who,' is a winner!!!')
+        let tmp='act'+who.toString()
+        console.log('tmp=',tmp)
+        // for (let i=1;i<4;i++) {
+        //     tmp='act'+i.toString()
+        //     tmp=document.getElementsByClassName(tmp)
+        //     if (who===i){tmp.innerHTML="WINNER"
+        //     } else {tmp.innerHTML=""}
+        // }
+        // document.getElementById(tmp).innerText = "yourTextHere1";
+        document.getElementById(tmp).innerHTML = "WINNER";
+        console.log('tmp=',tmp)
+        // tmp.innerHTML="WINNER"
     } else {
         console.log('Wrong answer!!! ', 'Player ',who)
     }
