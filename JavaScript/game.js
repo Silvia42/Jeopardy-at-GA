@@ -58,13 +58,14 @@ puzzleAnswer.forEach(function(row) {
     }
   });
 
-  $('#playGame').on('click', function() {
-    gameState=1
-    setActivePlayer(1)
-    console.log('PLAY GAME',gameState)
-    document.getElementById("playGame").style.visibility = "hidden";
-    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
-  })
+// this functionality was MOVE to $('body').ready(function() in app.js  
+//   $('#playGame').on('click', function() {
+//     gameState=1
+//     setActivePlayer(1)
+//     console.log('PLAY GAME',gameState)
+//     document.getElementById("playGame").style.visibility = "hidden";
+//     document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
+//   })
 
  //////////////////////////////////////////////////////////////////////////
  /////////////////////////// Set P O I N T S   ////////////////////////////

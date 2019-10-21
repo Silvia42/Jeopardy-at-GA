@@ -72,6 +72,11 @@ function spinWheel(angle){
 $('body').ready(function() {
     console.log( "Body ready!" );  
     spinWheel(startAngle)
+    gameState=1
+    setActivePlayer(1)
+    console.log('PLAY GAME',gameState)
+    document.getElementById("playGame").style.visibility = "hidden";
+    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
 });
 
 $('#spin').click(function() {
@@ -83,7 +88,7 @@ $('#spin').click(function() {
     //addAngle=15
     wheelAngle+=addAngle+360
     let triangleColor=document.getElementById("spin").style.backgroundColor;
-    // console.log('triangleColor=',triangleColor)
+    console.log('triangleColor=',triangleColor)
     if  (triangleColor === "rgb(16, 209, 16)") spinWheel(wheelAngle)
     ////// This does not work as expected. 
     ////// Function spinWheel is done before rotation of the wheel is finished.
