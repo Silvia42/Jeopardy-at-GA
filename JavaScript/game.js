@@ -206,6 +206,7 @@ function jeopardy(numQA){
         if (opt[0]=='*') {
             corectOptionId=i
             opt=opt.slice(1) // method slice, end is optional
+            buttonOption.className="buttonOption correctOption"
         }
         buttonOption.innerHTML =  /// "option "+(i+1).toString()
             questionStart[Math.floor(numQA/7)][numQA%7] +
@@ -213,7 +214,44 @@ function jeopardy(numQA){
             questionEnd[Math.floor(numQA/7)][numQA%7]
         // "asdf"+i.toString()
         myDiv.appendChild(buttonOption)
+        // console.log(buttonOption.className)
+
     }
+    /////////////////
+    // buttonOption.onclick=function(opt) {
+    //     console.log("clicked option",opt)
+    // }
+    $('.buttonOption').click(function(event) {   
+        event.preventDefault();
+        let which = event.target;
+        let whichParent = which.parentNode.nodeName;
+        // console.log("clicked option",which,'parent is:',whichParent)
+        // console.log(which.parentNode.childNodes[1])
+        // console.log(which.parentNode.childNodes[2])
+        // console.log(which.parentNode.childNodes[3])
+        // console.log(which.parentNode.childNodes[4])
+        // console.log(which)
+        // console.log(which.parentNode.childNodes[corectOptionId])
+        // console.log('corectOptionId',corectOptionId)
+        // for (i=1;i<5;i++){
+        //     if (which.textContent===
+        //         which.parentNode.childNodes[corectOptionId].textContent) {
+        //         console.log('CORRECT !!!')
+        //     } else {
+        //         console.log('*** INCORRECT !!!')
+        //     }
+        // }
+        console.log(which.className.length)
+        if (which.className.length>12) {
+            console.log('CORRECT !!!')
+        } else {
+            console.log('*** INCORRECT !!!')
+        }
+
+    })
+
+
+
     ////////////////////////////////////////////////////vvv///// temporally function
     myDiv.onclick=function(e) {
     this.parentNode.removeChild(this);
