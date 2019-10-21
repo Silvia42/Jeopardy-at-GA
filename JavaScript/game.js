@@ -12,6 +12,7 @@ let gameState=0
 // 102 = Is player 2 turn, Pick a letter or solve a puzzle
 // 103 = Is player 3 turn, Pick a letter or solve a puzzle
 console.log('PLAY GAME',gameState)
+document.getElementById("spin").style.backgroundColor = "red";
 
 // Actual Value from the wheel (set in function wheelReturn(val))
 let wheelValue=0
@@ -59,7 +60,7 @@ puzzleAnswer.forEach(function(row) {
     setActivePlayer(1)
     console.log('PLAY GAME',gameState)
     document.getElementById("playGame").style.visibility = "hidden";
-
+    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
   })
 
 
@@ -84,23 +85,30 @@ if (gameState){
     if (gameState===0) {
         // gameState=1
         // game is starting, when START GAME button is clicked
+        document.getElementById("spin").style.backgroundColor = "red";
     }
     else if (gameState>0 && gameState<4){
-        console.log('*BEFORE if*gameState is: ',gameState)
+        console.log('*BEFORE if*gameState is: ',gameState,'player=',p)
         if (val==0){    //  0 = BANKRUPT
             playerPoints.innerHTML='0'
-            p=(p+1)%3   // next player
-            gameState=p // starting with spin
+            p=(p+1)%3    // next player
+            if (p<1) p=3
+            gameState=p  // starting with spin
+            document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
         }
         else if (val==-1){   // -1 = LOST A TURN
             p=(p+1)%3   // next player
-            gameState=p // starting with spin
+            if (p<1) p=3
+            gameState=p   // starting with spin
+            document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
         }
         else if (val==-2){   // -2 = FREE PLAY = choose letter without solving QA Jeopardy
             gameState+=100
+            document.getElementById("spin").style.backgroundColor = "red";
         }
         else {
             gameState+=10
+            document.getElementById("spin").style.backgroundColor = "red";
             // console.log('I am here.','gameState is: ',gameState)
         }
     }
@@ -120,14 +128,23 @@ function letterClick(myLetter){
  if (gameState>10 && gameState<14){
     numberQA=consonants.indexOf(myLetter)
     jeopardy(numberQA)
+    // If wrong, No +points, player loss turn
+    // Letter Will be Showed Always
+
+    // This move to function onClick(OPTION) in Jeopardy
+    showLettersInPuzzle(letterClicked)
+    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
     gameState-=10
  }
 
  if (gameState>100 && gameState<104){
     // Player can play without Jeopardy  
     showLettersInPuzzle(letterClicked)
-    gameState-=90 // -100 +10 = -90
+    showLettersInPuzzle(letterClicked)
+    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
+    gameState-=100 // going back to turn wheel
  }
+
 
 }
 
@@ -154,7 +171,6 @@ function showLettersInPuzzle(letterClicked){
 
 } // end of function showLettersInPuzzle(letterClicked)
 
-let letterWas=[]
 //////////////////////////////////////////////////////////////////////////
 //////////////////////// J E O P A R D Y  ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -198,25 +214,20 @@ function jeopardy(numQA){
         // "asdf"+i.toString()
         myDiv.appendChild(buttonOption)
     }
-
-    // $(myDiv).append(
-    //     createButton('Done', toggleDone, 'done green'),
-    //     createButton('Delete', function() {
-    //         $('#dialogDel').data('mydata', $(this).parents('li')).dialog('open');
-    //     }).addClass('del red')
-
-
-////////////////////////////////////////////////////vvv///// temporally function
-        myDiv.onclick=function(e) {
-            this.parentNode.removeChild(this);
-            showLettersInPuzzle(letterClicked)
-        }
-////////////////////////////////////////////////////^^^/////
-
-
-
-    ///// Play Jeopardy ///// end of function jeopardy(numQA)  ///////////////////////////
+    ////////////////////////////////////////////////////vvv///// temporally function
+    myDiv.onclick=function(e) {
+    this.parentNode.removeChild(this);
+    showLettersInPuzzle(letterClicked)
 }
+////////////////////////////////////////////////////^^^/////
+} // end of function jeopardy(numQA)  ///////////////////////////
+
+// $(myDiv).append(
+//     createButton('Done', toggleDone, 'done green'),
+//     createButton('Delete', function() {
+//         $('#dialogDel').data('mydata', $(this).parents('li')).dialog('open');
+//     }).addClass('del red')
+
 
 
 

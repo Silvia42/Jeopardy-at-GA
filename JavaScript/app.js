@@ -32,7 +32,7 @@ loadJSON1()
 // alert(questionEnd)
 // alert(options)
 ///////////////////////////////////////////////////////////////////  
-///////////          Data was loaded          /////////////////////      
+///////////          Data were loaded         /////////////////////      
 ///////////////////////////////////////////////////////////////////
 
 
@@ -82,7 +82,9 @@ $('#spin').click(function() {
     //console.log('math',addAngle, addAngle/15)
     //addAngle=15
     wheelAngle+=addAngle+360
-    spinWheel(wheelAngle)
+    let triangleColor=document.getElementById("spin").style.backgroundColor;
+    console.log('triangleColor=',triangleColor)
+    if  (triangleColor === "rgb(16, 209, 16)") spinWheel(wheelAngle)
     ////// This does not work as expected. 
     ////// Function spinWheel is done before rotation of the wheel is finished.
                 // $.when( spinWheel(wheelAngle) ).done(function() {
