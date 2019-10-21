@@ -88,7 +88,7 @@ $('#spin').click(function() {
     //addAngle=15
     wheelAngle+=addAngle+360
     let triangleColor=document.getElementById("spin").style.backgroundColor;
-    console.log('triangleColor=',triangleColor)
+    // console.log('triangleColor=',triangleColor)
     if  (triangleColor === "rgb(16, 209, 16)") spinWheel(wheelAngle)
     ////// This does not work as expected. 
     ////// Function spinWheel is done before rotation of the wheel is finished.

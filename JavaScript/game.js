@@ -2,6 +2,7 @@
 let gameState=0
 let correctJeopardyAnswer=0
 let letterInPuzzle=0
+let letterIsVowel=0
 // Actual Value from the wheel (set in function wheelReturn(val))
 let wheelValue=0
 
@@ -77,20 +78,24 @@ puzzleAnswer.forEach(function(row) {
     // if (!p) p=3
     let playerPoints
     if (p) playerPoints=document.getElementsByClassName("points").item(p-1).innerText
-    if (wheelValue) {
+    if (wheelValue>0) {
         if (correctJeopardyAnswer && letterInPuzzle) {
             playerPoints=Number(playerPoints) + wheelValue
         } 
-        if (!correctJeopardyAnswer) {
+        if (!correctJeopardyAnswer || letterIsVowel) {
+            console.log('letteIsVowel')
             playerPoints=Number(playerPoints) - wheelValue
         } 
     } else {
-        playerPoints=0
+
     }
     // console.log('player=',p)
     // console.log('gameState=',gameState)
     // console.log('playerPoints=',document.getElementsByClassName("points").item(p-1).innerText)
     document.getElementsByClassName("points").item(p-1).innerHTML=playerPoints
+    if (!correctJeopardyAnswer || !letterInPuzzle) {
+        lostTurn()
+    }
  }
   
  //////////////////////////////////////////////////////////////////////////
@@ -101,8 +106,9 @@ puzzleAnswer.forEach(function(row) {
     p=(p+1)%3    // next player
     if (p<1) p=3
     gameState=p  // starting with spin
+    setActivePlayer(p)
+    console.log('Lost Turn, player is: ',p)
     document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
-    
  }
 
  //////////////////////////////////////////////////////////////////////////
@@ -168,9 +174,10 @@ if (gameState){
  //////////////////////////////////////////////////////////////////////////
  /////////////////////////// L E T T E R  /////////////////////////////////
  ////////////////////////////////////////////////////////////////////////// 
-function letterClick(myLetter){
+function letterClick(myLetter){ 
  console.log('myLetter is:',myLetter,"gameState=",gameState)
  if (vovels.indexOf(myLetter)<0) {// myLetter is consonant ////////////////
+    letterIsVowel=0  
     if (gameState>10 && gameState<14){
         numberQA=consonants.indexOf(myLetter)
         jeopardy(numberQA)
@@ -186,16 +193,19 @@ function letterClick(myLetter){
     if (gameState>100 && gameState<104){
         // Player can play without Jeopardy  
         showLettersInPuzzle(letterClicked)
+        setPoints()
+        // gameState is set in setPoints
+        // gameState-=100 // going back to turn wheel
         document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
-        gameState-=100 // going back to turn wheel
     }
  } else { // myLetter is  V O W E L  ////////////////////////////////////
+letterIsVowel=1    
 if (gameState>10 && gameState<14){
     showLettersInPuzzle(letterClicked)
     document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
     gameState-=10
     // LOST points value from wheel
-    correctJeopardyAnswer=0
+    letterIsVowel=1
     setPoints()
     // if not letterInPuzzle, LOST TURN
     if (!letterInPuzzle){

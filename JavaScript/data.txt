@@ -1,0 +1,21 @@
+category: HTML = skeleton
+
+It is a tag for Horizontal Line.
+What is <hr>?
+<br>  
+<vr>
+<hline>
+
+It defines an image in an HTML page.
+What is <img>
+<src>
+<pict>
+<jpg>
+
+
+
+
+category: CSS = skin
+
+
+category: JS = brain
