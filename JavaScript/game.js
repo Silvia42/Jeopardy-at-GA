@@ -77,18 +77,34 @@ puzzleAnswer.forEach(function(row) {
     // if (!p) p=3
     let playerPoints
     if (p) playerPoints=document.getElementsByClassName("points").item(p-1).innerText
-    if (correctJeopardyAnswer && letterInPuzzle) {
-        playerPoints=Number(playerPoints) + wheelValue
-    } 
-    if (!correctJeopardyAnswer) {
-        playerPoints=Number(playerPoints) - wheelValue
-    } 
+    if (wheelValue) {
+        if (correctJeopardyAnswer && letterInPuzzle) {
+            playerPoints=Number(playerPoints) + wheelValue
+        } 
+        if (!correctJeopardyAnswer) {
+            playerPoints=Number(playerPoints) - wheelValue
+        } 
+    } else {
+        playerPoints=0
+    }
     // console.log('player=',p)
     // console.log('gameState=',gameState)
     // console.log('playerPoints=',document.getElementsByClassName("points").item(p-1).innerText)
     document.getElementsByClassName("points").item(p-1).innerHTML=playerPoints
  }
   
+ //////////////////////////////////////////////////////////////////////////
+ /////////////////////////// L O S T  T U R N  ////////////////////////////
+ ////////////////////////////////////////////////////////////////////////// 
+ function lostTurn(){
+    let p=gameState%10 // p is player 
+    p=(p+1)%3    // next player
+    if (p<1) p=3
+    gameState=p  // starting with spin
+    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
+    
+ }
+
  //////////////////////////////////////////////////////////////////////////
  ///////////////////////////// W H E E L //////////////////////////////////
  ////////////////////////////////////////////////////////////////////////// 
@@ -117,7 +133,8 @@ if (gameState){
     else if (gameState>0 && gameState<4){
         console.log('*BEFORE if*gameState is: ',gameState,'player=',p)
         if (val==0){    //  0 = BANKRUPT
-            playerPoints.innerHTML='0'
+            setPoints()
+            // playerPoints.innerHTML='0'
             p=(p+1)%3    // next player
             if (p<1) p=3
             gameState=p  // starting with spin
@@ -153,28 +170,40 @@ if (gameState){
  ////////////////////////////////////////////////////////////////////////// 
 function letterClick(myLetter){
  console.log('myLetter is:',myLetter,"gameState=",gameState)
- if (gameState>10 && gameState<14){
-    numberQA=consonants.indexOf(myLetter)
-    jeopardy(numberQA)
-    // If wrong, No +points, player loss turn
-    // Letter Will be Showed Always
+ if (vovels.indexOf(myLetter)<0) {// myLetter is consonant ////////////////
+    if (gameState>10 && gameState<14){
+        numberQA=consonants.indexOf(myLetter)
+        jeopardy(numberQA)
+        // If wrong, No +points, player loss turn
+        // Letter Will be Showed Always
 
-    // This move to function onClick(OPTION) in Jeopardy
+        // This move to function onClick(OPTION) in Jeopardy
+        showLettersInPuzzle(letterClicked)
+        document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
+        gameState-=10
+    }
+
+    if (gameState>100 && gameState<104){
+        // Player can play without Jeopardy  
+        showLettersInPuzzle(letterClicked)
+        document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
+        gameState-=100 // going back to turn wheel
+    }
+ } else { // myLetter is  V O W E L  ////////////////////////////////////
+if (gameState>10 && gameState<14){
     showLettersInPuzzle(letterClicked)
     document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
     gameState-=10
+    // LOST points value from wheel
+    correctJeopardyAnswer=0
+    setPoints()
+    // if not letterInPuzzle, LOST TURN
+    if (!letterInPuzzle){
+        lostTurn()
+    }
  }
-
- if (gameState>100 && gameState<104){
-    // Player can play without Jeopardy  
-    showLettersInPuzzle(letterClicked)
-    showLettersInPuzzle(letterClicked)
-    document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
-    gameState-=100 // going back to turn wheel
- }
-
-
 }
+} // end of function letterClick(myLetter)
 
 //////////////////////////////////////////////////////////////////////////
 function showLettersInPuzzle(letterClicked){
