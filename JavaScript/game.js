@@ -125,7 +125,7 @@ function letterClick(myLetter){
 
  if (gameState>100 && gameState<104){
     // Player can play without Jeopardy  
-
+    showLettersInPuzzle(letterClicked)
     gameState-=90 // -100 +10 = -90
  }
 
@@ -175,20 +175,26 @@ function jeopardy(numQA){
     
     /////// Make OPTION buttons ////////////////////////////////////////
     let corectOptionId // will be set, when string is starting with '*'
+    let opt
+    let s
     for (let i=0;i<4;i++){
         let buttonOption = document.createElement("BUTTON",'buttonOption');
         buttonOption.className="buttonOption"
         myDiv.appendChild(buttonOption)
         //answers[Math.floor(numQA/7)][numQA%7]
         console.log(options[0][0][i])
-        let s=options[0][0][i]
+        s = options[0][0][i]
         // escape OR encodeURI OR encodeURIComponent functions
+        // options[Math.floor(numQA/7)][numQA%7][i]
+        opt = options[Math.floor(numQA/7)][numQA%7][i].replace("<","&lt")
+        if (opt[0]=='*') {
+            corectOptionId=i
+            opt=opt.slice(1) // method slice, end is optional
+        }
         buttonOption.innerHTML =  /// "option "+(i+1).toString()
             questionStart[Math.floor(numQA/7)][numQA%7] +
-            options[Math.floor(numQA/7)][numQA%7][i].replace("<","&lt") +
-            // options[Math.floor(numQA/7)][numQA%7][i] +
+            opt +
             questionEnd[Math.floor(numQA/7)][numQA%7]
-        
         // "asdf"+i.toString()
         myDiv.appendChild(buttonOption)
     }
