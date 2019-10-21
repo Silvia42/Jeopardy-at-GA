@@ -122,7 +122,39 @@ function letterClick(myLetter){
     jeopardy(numberQA)
     gameState-=10
  }
+
+ if (gameState>100 && gameState<104){
+    // Player can play without Jeopardy  
+
+    gameState-=90 // -100 +10 = -90
+ }
+
 }
+
+//////////////////////////////////////////////////////////////////////////
+function showLettersInPuzzle(letterClicked){
+    for(let i=0;i<4;i++){
+        for (let j=0;j<15;j++){
+            if (puzzleAnswer[i][j]==letterClicked){
+                console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
+                // console.log(letterClicked,letterClick) // variable, function
+                document.getElementsByClassName("puzzleChar")[i*15+j].innerHTML=letterClicked
+            }
+        }
+    }
+    // hide "letterClicked"
+    // str.indexOf(searchValue)
+    // The index of the first occurrence of searchValue, or -1 if not found.
+    // consonants
+    let c=consonants.indexOf(letterClicked)
+    if (c>=0) document.getElementsByClassName("alpha")[c].style.visibility = "hidden";
+    // vovels
+    let v=vovels.indexOf(letterClicked)
+    if (v>=0) document.getElementsByClassName("vowel")[v].style.visibility = "hidden";
+
+} // end of function showLettersInPuzzle(letterClicked)
+
+let letterWas=[]
 //////////////////////////////////////////////////////////////////////////
 //////////////////////// J E O P A R D Y  ////////////////////////////////
 //////////////////////////////////////////////////////////////////////////
@@ -171,15 +203,7 @@ function jeopardy(numQA){
 ////////////////////////////////////////////////////vvv///// temporally function
         myDiv.onclick=function(e) {
             this.parentNode.removeChild(this);
-            for(let i=0;i<4;i++){
-                for (let j=0;j<15;j++){
-                    if (puzzleAnswer[i][j]==letterClicked){
-                        console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
-                        // console.log(letterClicked,letterClick) // variable, function
-                        document.getElementsByClassName("puzzleChar")[i*15+j].innerHTML=letterClicked
-                    }
-                }
-            }
+            showLettersInPuzzle(letterClicked)
         }
 ////////////////////////////////////////////////////^^^/////
 
