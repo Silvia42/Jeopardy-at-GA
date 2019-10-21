@@ -347,3 +347,32 @@ $('.alpha,.vowel').click(function(event) {
 
 // createButton('Delete', function() {
 //     $('#dialogDel').data('mydata', $(this).parents('li')).dialog('open');
+
+ //////////////////////////////////////////////////////////////////////////
+ //////////// F I N A L - S O L V E   P U Z Z L E  ////////////////////////
+ ////////////////////////////////////////////////////////////////////////// 
+
+//  myDiv.onclick=function(e) {
+//     this.parentNode.removeChild(this);
+//     showLettersInPuzzle(letterClicked)
+
+$('.player').click(function(event) {
+    event.preventDefault();
+    let which = event.target.id;
+    console.log('"player" was clicked','gameState=',gameState)
+    console.log('Clicked: ',which)
+    let who=which[which.length-1]
+    console.log('pppppppppp',who)
+    if ('0'<who && who<'4'){
+        let myDiv = document.createElement('div');
+        let myBody=document.getElementsByTagName("body")[0]
+        myDiv.className="divSolvePuzzle"
+        myBody.appendChild(myDiv)
+
+        myDiv.innerHTML='Player '+who+', solve puzzle:'
+        let x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+        x.className="inputSolution"
+        myDiv.appendChild(x)
+    }    
+  });

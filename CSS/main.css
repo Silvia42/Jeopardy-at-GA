@@ -421,3 +421,38 @@ h1 {
   box-shadow: 4px 4px var(--myBlack);
 
 }
+
+/* ############################################################## */
+/* ############  styling SOLVE PUZZLE    ######################## */
+/* ############################################################## */
+
+.divSolvePuzzle{
+  width: 64vw;
+  height: 32vh;
+  background-color: blue;
+  z-index: 999;
+  position: absolute;
+  top: 444px;
+  left: 10px;
+  color: var(--myYellow);
+  text-shadow: 2px 2px 4px #000000;
+  font-family: LithosPro-Regular;
+  font-size: 4em;
+  text-align: center;
+  /* line-height: 444px; */
+  padding: 50px 0;
+  /* vertical-align: middle; */
+  display: flex;
+  flex-direction: column;
+  border: 25px solid black;
+  border-radius: 8px;
+}
+
+.inputSolution{
+  width: 80;
+  height: 50%;
+  /* background-color: aqua; */
+  font-family: LithosPro-Regular;
+  font-size: .4em;
+  text-align: center;
+}
