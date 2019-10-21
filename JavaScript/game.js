@@ -1,5 +1,10 @@
 // GAME loop: spin wheel, Jepardy AQ, Pick a letter or solve a puzzle, REPEAT
 let gameState=0
+let correctJeopardyAnswer=0
+let letterInPuzzle=0
+// Actual Value from the wheel (set in function wheelReturn(val))
+let wheelValue=0
+
 // 0 = game haven't start yet
 // -1 = game over
 // 1 = Is player 1 turn, spin a wheel
@@ -14,8 +19,6 @@ let gameState=0
 console.log('PLAY GAME',gameState)
 document.getElementById("spin").style.backgroundColor = "red";
 
-// Actual Value from the wheel (set in function wheelReturn(val))
-let wheelValue=0
 
 // Set all players INACTIVE /////////////////////////////////////
 setAllPlayersInactive()
@@ -63,7 +66,28 @@ puzzleAnswer.forEach(function(row) {
     document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";
   })
 
-
+ //////////////////////////////////////////////////////////////////////////
+ /////////////////////////// Set P O I N T S   ////////////////////////////
+ ////////////////////////////////////////////////////////////////////////// 
+ function setPoints(){
+    let p=gameState%10 // p is player 
+    // setActivePlayer(p)
+    // p-=1
+    // if (!p) p=3
+    let playerPoints
+    if (p) playerPoints=document.getElementsByClassName("points").item(p-1).innerText
+    if (correctJeopardyAnswer && letterInPuzzle) {
+        playerPoints=Number(playerPoints) + wheelValue
+    } 
+    if (!correctJeopardyAnswer) {
+        playerPoints=Number(playerPoints) - wheelValue
+    } 
+    // console.log('player=',p)
+    // console.log('gameState=',gameState)
+    // console.log('playerPoints=',document.getElementsByClassName("points").item(p-1).innerText)
+    document.getElementsByClassName("points").item(p-1).innerHTML=playerPoints
+ }
+  
  //////////////////////////////////////////////////////////////////////////
  ///////////////////////////// W H E E L //////////////////////////////////
  ////////////////////////////////////////////////////////////////////////// 
@@ -78,10 +102,12 @@ puzzleAnswer.forEach(function(row) {
     console.log('gameState is: ',gameState)
 
 if (gameState){
-    let p=gameState%3 // p is player 
-    if (p<1) p=3
+    let p=gameState%10 // p is player 
+    // p=gameState%3 // p is player 
+    // if (p<1) p=3
     setActivePlayer(p)
-    let playerPoints=document.getElementsByClassName("points")[p]
+    let playerPoints
+    if (p) playerPoints=document.getElementsByClassName("points")[p]
     if (gameState===0) {
         // gameState=1
         // game is starting, when START GAME button is clicked
@@ -104,6 +130,7 @@ if (gameState){
         }
         else if (val==-2){   // -2 = FREE PLAY = choose letter without solving QA Jeopardy
             gameState+=100
+            correctJeopardyAnswer=1 // Works Same as correct Answer in Jeopardy
             document.getElementById("spin").style.backgroundColor = "red";
         }
         else {
@@ -150,12 +177,14 @@ function letterClick(myLetter){
 
 //////////////////////////////////////////////////////////////////////////
 function showLettersInPuzzle(letterClicked){
+    letterInPuzzle=0
     for(let i=0;i<4;i++){
         for (let j=0;j<15;j++){
             if (puzzleAnswer[i][j]==letterClicked){
-                console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
+                // console.log(document.getElementsByClassName("puzzleChar")[i*15+j])
                 // console.log(letterClicked,letterClick) // variable, function
                 document.getElementsByClassName("puzzleChar")[i*15+j].innerHTML=letterClicked
+                letterInPuzzle=1
             }
         }
     }
@@ -198,7 +227,7 @@ function jeopardy(numQA){
         buttonOption.className="buttonOption"
         myDiv.appendChild(buttonOption)
         //answers[Math.floor(numQA/7)][numQA%7]
-        console.log(options[0][0][i])
+        //console.log(options[0][0][i])
         s = options[0][0][i]
         // escape OR encodeURI OR encodeURIComponent functions
         // options[Math.floor(numQA/7)][numQA%7][i]
@@ -224,7 +253,7 @@ function jeopardy(numQA){
     $('.buttonOption').click(function(event) {   
         event.preventDefault();
         let which = event.target;
-        let whichParent = which.parentNode.nodeName;
+        // let whichParent = which.parentNode.nodeName;
         // console.log("clicked option",which,'parent is:',whichParent)
         // console.log(which.parentNode.childNodes[1])
         // console.log(which.parentNode.childNodes[2])
@@ -241,13 +270,11 @@ function jeopardy(numQA){
         //         console.log('*** INCORRECT !!!')
         //     }
         // }
-        console.log(which.className.length)
-        if (which.className.length>12) {
-            console.log('CORRECT !!!')
-        } else {
-            console.log('*** INCORRECT !!!')
-        }
-
+        // console.log(which.className.length)
+        correctJeopardyAnswer=which.className.length>12
+        // if (which.className.length>12) {
+        //     console.log('CORRECT !!!')} else {console.log('*** INCORRECT !!!')}
+        setPoints()
     })
 
 
