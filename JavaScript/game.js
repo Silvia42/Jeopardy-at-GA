@@ -356,6 +356,10 @@ $('.alpha,.vowel').click(function(event) {
 //     this.parentNode.removeChild(this);
 //     showLettersInPuzzle(letterClicked)
 
+function checkAnswer(who,answ){
+    console.log('Here is answer ',answ,' from player ',who)
+}
+
 $('.player').click(function(event) {
     event.preventDefault();
     let which = event.target.id;
@@ -370,9 +374,28 @@ $('.player').click(function(event) {
         myBody.appendChild(myDiv)
 
         myDiv.innerHTML='Player '+who+', solve puzzle:'
-        let x = document.createElement("INPUT");
-        x.setAttribute("type", "text");
+        let x = document.createElement("input");
+        // x.setAttribute("type", "text");
+        x.type = "text";
         x.className="inputSolution"
         myDiv.appendChild(x)
-    }    
+
+        // let s = document.createElement("BUTTON");
+        let s = document.createElement("input");
+        // s.setAttribute("type", "submit");
+        s.type = "submit";
+        s.className="inputSolutionButton"
+        myDiv.appendChild(s)
+    } 
+    
+    $(".inputSolutionButton").click(function(event) {
+        event.preventDefault();  
+        console.log('aaaaaaaaaaaaaa')
+        let which = event.target;
+        // answ=$( which ).text();
+        let answ=document.getElementsByClassName("inputSolution")[0].value
+        console.log('answer is: ',answ)
+        checkAnswer(who,answ)
+      });
+
   });

@@ -446,13 +446,24 @@ h1 {
   flex-direction: column;
   border: 25px solid black;
   border-radius: 8px;
+  align-items: center;
 }
-
 .inputSolution{
-  width: 80;
+  width: 90%;
   height: 50%;
   /* background-color: aqua; */
   font-family: LithosPro-Regular;
   font-size: .4em;
   text-align: center;
+  margin: 8px;
+}
+.inputSolutionButton{
+  /* width: 30%; */
+  /* height: 20%; */
+  z-index: 999999;
+  background-color: var(--myYellow);
+  font-family: LithosPro-Regular;
+  font-size: .4em;
+  text-align: center;
+  margin: 8px;
 }
