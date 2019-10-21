@@ -358,6 +358,14 @@ $('.alpha,.vowel').click(function(event) {
 
 function checkAnswer(who,answ){
     console.log('Here is answer ',answ,' from player ',who)
+    let pzzl=puzzleAnswer.join(' ').toLowerCase().replace(/\s/g,'');
+    answ=answ.toLowerCase().replace(/\s/g,'');
+    console.log(pzzl,answ,pzzl===answ)
+    if (pzzl===answ){
+        console.log('Player ',who,' is a winner!!!')
+    } else {
+        console.log('Wrong answer!!! ', 'Player ',who)
+    }
 }
 
 $('.player').click(function(event) {
@@ -395,6 +403,11 @@ $('.player').click(function(event) {
         // answ=$( which ).text();
         let answ=document.getElementsByClassName("inputSolution")[0].value
         console.log('answer is: ',answ)
+        // this.parentNode.removeChild(this);
+        // myDiv.parentNode.removeChild(myDiv);
+        let parent=document.getElementsByClassName("divSolvePuzzle");
+        console.log('parent',parent)
+        parent[0].parentNode.removeChild( parent[0]);
         checkAnswer(who,answ)
       });
 

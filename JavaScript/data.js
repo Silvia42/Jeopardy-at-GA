@@ -8,6 +8,7 @@
 // “Talk is cheap. Show me the code.” 
 // ― Linus Torvalds
 let puzzleAnswer= ["    Talk is    ","     cheap     ","    Show me    ","   the code    "];
+//  Talk is         cheap        Show me      the code    
 for (let i=0;i<4;i++){puzzleAnswer[i]=puzzleAnswer[i].toLowerCase()}
 
 // category / answer / qBegin / qEnd / options 4x
