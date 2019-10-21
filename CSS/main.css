@@ -185,8 +185,8 @@ h1 {
   left:10px;
   display: flex;
   flex-direction: row;
-  height: 100%;
-  width: 15%;
+  width: 5vw;
+  height: 5vh;
 }
 .smallLogo{
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
@@ -220,6 +220,7 @@ h1 {
   float:right;
 }
 .smallJeop{
+  /* position: relative; */
   /* animation: name duration timing-function delay iteration-count direction fill-mode; */
   /* animation: keepRotateJeopardy 7s infinite linear; */
   animation: flashJeopardy 7s infinite linear;

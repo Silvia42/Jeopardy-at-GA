@@ -5,5 +5,8 @@ git status
 git add CSS/ Documentation/
 git add Fonts/ Images/ Pages/
 git add README.md gitCommands.txt index.html 
+git add JavaScript/
+git status
+git commit -m "E pur si muove"
 
-
+git push origin42 master

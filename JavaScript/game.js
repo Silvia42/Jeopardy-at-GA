@@ -31,7 +31,7 @@ function setAllPlayersInactive(){
 function setActivePlayer(p){
     setAllPlayersInactive()
     let el="act"+p.toString()
-    console.log('el',el)
+    // console.log('el',el)
     document.getElementById(el).style.visibility = "visible"
 }  
 // setActivePlayer(3)
@@ -58,6 +58,7 @@ puzzleAnswer.forEach(function(row) {
     gameState=1
     setActivePlayer(1)
     console.log('PLAY GAME',gameState)
+    document.getElementById("playGame").style.visibility = "hidden";
 
   })
 
@@ -74,19 +75,22 @@ puzzleAnswer.forEach(function(row) {
     wheelValue=val  // Actual Value from the wheel
     console.log('Returned \n value from wheel is:',val)
     console.log('gameState is: ',gameState)
+
+if (gameState){
     let p=gameState%3 // p is player 
-    if (p) {
-        setActivePlayer(p)
-        let player=document.getElementsByClassName("points")[p]
-    }
+    if (p<1) p=3
+    setActivePlayer(p)
+    let playerPoints=document.getElementsByClassName("points")[p]
     if (gameState===0) {
         // gameState=1
-        // gameis starting, when START GAME button is clicked
+        // game is starting, when START GAME button is clicked
     }
     else if (gameState>0 && gameState<4){
         console.log('*BEFORE if*gameState is: ',gameState)
         if (val==0){    //  0 = BANKRUPT
-            player.innerHTML='0'
+            playerPoints.innerHTML='0'
+            p=(p+1)%3   // next player
+            gameState=p // starting with spin
         }
         else if (val==-1){   // -1 = LOST A TURN
             p=(p+1)%3   // next player
@@ -101,7 +105,12 @@ puzzleAnswer.forEach(function(row) {
         }
     }
     console.log('*AFTER if*gameState is: ',gameState)
-}
+    console.log('Active Player is: ',p)
+    if (p) {
+        setActivePlayer(p)
+    }
+} //  if (gameState){ 
+} // function wheelReturn(val)
 
  //////////////////////////////////////////////////////////////////////////
  /////////////////////////// L E T T E R  /////////////////////////////////
@@ -111,7 +120,7 @@ function letterClick(myLetter){
  if (gameState>10 && gameState<14){
     numberQA=consonants.indexOf(myLetter)
     jeopardy(numberQA)
-
+    gameState-=10
  }
 }
 //////////////////////////////////////////////////////////////////////////
@@ -141,10 +150,11 @@ function jeopardy(numQA){
         //answers[Math.floor(numQA/7)][numQA%7]
         console.log(options[0][0][i])
         let s=options[0][0][i]
+        // escape OR encodeURI OR encodeURIComponent functions
         buttonOption.innerHTML =  /// "option "+(i+1).toString()
             questionStart[Math.floor(numQA/7)][numQA%7] +
-            // options[Math.floor(numQA/7)][numQA%7][i].replace("<","&lt") +
-            encoe(options[Math.floor(numQA/7)][numQA%7][i]) +
+            options[Math.floor(numQA/7)][numQA%7][i].replace("<","&lt") +
+            // options[Math.floor(numQA/7)][numQA%7][i] +
             questionEnd[Math.floor(numQA/7)][numQA%7]
         
         // "asdf"+i.toString()
