@@ -1,10 +1,21 @@
 
+let alphaStartTop=20 //570
+let alphaStartLeft=50
+let vowelMoveRight=500
+let alphaBetweenColumns=5
+let alphaSpaceBetweenRows=10
+let alphaWidth=32
+let alphaHeight=64
 let puzzleStartTop=128
 let puzzleStartLeft=50
 let spaceBetweenColumns=15
 let spaceBetweenRows=5
 let letterWidth=50
 let letterHeight=64
+let categoryStartTop=155
+let categoryStartLeft=50
+let categoryWidth=7*alphaWidth+6*alphaBetweenColumns
+let categoryHeight=letterHeight
 
 for (let i=0;i<60;i++){
     let myDiv = document.createElement('div');
@@ -21,14 +32,23 @@ for (let i=0;i<60;i++){
     // myDiv.addEventListener('mouseover', goGreen);
 }
 
+/////////////////  CATEGORY //////////////////////////////////////////////
+// categories=[string,string,string]
+for (let i=0;i<3;i++){
+    console.log(i,'. category is: ',categories[i])
+    let myDiv = document.createElement('div');
+    myDiv.className="category";
+    myDiv.innerHTML=categories[i]
+    myDiv.style.top= categoryStartTop.toString()+'px';
+    myDiv.style.left= (categoryStartLeft+i*(alphaBetweenColumns+categoryWidth)).toString()+'px';
+    myDiv.style.width=categoryWidth.toString()+'px';
+    myDiv.style.height=categoryHeight.toString()+'px';
+    let alphaBox=document.getElementsByClassName("box3A")[0]
+    alphaBox.appendChild(myDiv)
+}
+
 /////////////////  ALPHABET //////////////////////////////////////////////
-let alphaStartTop=20 //570
-let alphaStartLeft=50
-let vowelMoveRight=500
-let alphaBetweenColumns=5
-let alphaSpaceBetweenRows=10
-let alphaWidth=32
-let alphaHeight=64
+
 /// VOWELS: aeiou
 const vovels="aeiou"
 for (let i=0;i<5;i++){

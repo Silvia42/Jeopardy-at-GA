@@ -73,7 +73,7 @@ $('body').ready(function() {
     console.log( "Body ready!" );  
     spinWheel(startAngle)
     gameState=1
-    setActivePlayer(1)
+    // setActivePlayer(1)
     console.log('PLAY GAME',gameState)
     document.getElementById("playGame").style.visibility = "hidden";
     document.getElementById("spin").style.backgroundColor = "rgb(16, 209, 16)";

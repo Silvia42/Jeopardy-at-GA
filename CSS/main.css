@@ -343,7 +343,13 @@ h1 {
   text-align: center;
   line-height: 64px;
 }
-
+.category{
+  /* position: relative; */
+  position: absolute;
+  border-radius: 4px;
+  background-color: var(--myPink);
+  box-shadow: 4px 4px var(--myBlack);
+}
 .vowel{
   /* position: relative; */
   position: absolute;
@@ -355,6 +361,13 @@ h1 {
   color: var(--myPink);
 }
 .alpha{
+  /* position: relative; */
+  position: absolute;
+  border-radius: 4px;
+  background-color: var(--myGrey);
+  box-shadow: 4px 4px var(--myBlack);
+}
+.category{
   /* position: relative; */
   position: absolute;
   border-radius: 4px;
