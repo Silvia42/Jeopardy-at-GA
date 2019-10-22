@@ -87,7 +87,10 @@ puzzleAnswer.forEach(function(row) {
             playerPoints=Number(playerPoints) - wheelValue
         } 
     } else {
-
+        // wheelValue===0 means BANKRUPT
+        if (wheelValue===0) {
+            playerPoints=0 
+        }
     }
     // console.log('player=',p)
     // console.log('gameState=',gameState)
