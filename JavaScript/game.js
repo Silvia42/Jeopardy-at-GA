@@ -388,6 +388,11 @@ function checkAnswer(who,answ){
         document.getElementById(tmp).innerHTML = "WINNER";
         console.log('tmp=',tmp)
         // tmp.innerHTML="WINNER"
+        for (let c of consonants+vovels){
+            showLettersInPuzzle(c)
+        }
+        let cat=document.getElementsByClassName("category")
+        for (let c of cat) c.style.visibility='hidden'
     } else {
         console.log('Wrong answer!!! ', 'Player ',who)
     }

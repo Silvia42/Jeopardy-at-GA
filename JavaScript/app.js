@@ -50,10 +50,29 @@ let wheelValues=[-2,650,0,600,500,550,600,0,700,500,650,600,700,600,500,2500,0,9
 // console.log('wheel',wheelValues)
 // console.log(wheelValues.length) // 24
 
+
+// dom.animations-api.core.enabled 
 function spinWheel(angle){
-    let target = document.querySelector('#spinWheel');
+    // original code, combination of jQuery and VanillaJS is working only in Chrome
+    // in FireFox: NotSupportedError: Animation to or from an underlying value is not yet supported.
+    // let target = document.querySelector('#spinWheel');
+    // let player = target.animate([
     //console.log(target);
-    let player = target.animate([
+
+    // Vanilla Javascript, working in Chrome with no error, 
+    // Firefox: Animation to or from an underlying value is not yet supported.
+    let target = document.getElementById('spinWheel');
+    let player = target.animate([       
+
+    // https://stackoverflow.com/questions/38376499/failed-to-execute-animate-on-element-partial-keyframes-are-not-supported
+    
+    // jQuery, working in Chrome with no error, 
+    // Firefox: Animation to or from an underlying value is not yet supported.
+    // let target = document.querySelector('#spinWheel');
+    // let player = (target).animate([
+
+ 
+
     //   {transform: 'rotateZ(500deg)'}
       {transform: 'rotateZ('+(angle).toString()+'deg)'}
     ], {duration : 512, iterations : 1,fill : "forwards",easing: 'ease-in-out'}

@@ -30,6 +30,7 @@ for (let i=0;i<60;i++){
     puzzleBox.appendChild(myDiv)
     // myDiv.addEventListener('click', goGreen);
     // myDiv.addEventListener('mouseover', goGreen);
+    if ([0,14,45,59].includes(i)) myDiv.style.visibility='hidden'
 }
 
 /////////////////  CATEGORY //////////////////////////////////////////////
